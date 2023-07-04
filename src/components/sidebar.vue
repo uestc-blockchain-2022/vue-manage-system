@@ -174,6 +174,18 @@ const items = [
             },
         ]
     },
+    {
+        icon: 'CoffeeCup',
+        index: '/insurance',
+        title: '保险管理',
+        permiss: '16', 
+    },
+    {
+        icon: 'CoffeeCup',
+        index: '/express',
+        title: '物流管理',
+        permiss: '16',
+    }
     
 ];
 

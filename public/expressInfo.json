@@ -1,0 +1,41 @@
+{
+    "list": [
+        {
+            "id": 1,
+            "expressId": "754792134",
+            "sender": "张三",
+            "receiver": "李四",
+            "submitTime": "2023-6-24 08:53",
+            "company": "逆风速运",
+            "weight": "100kg"
+        },
+        {
+            "id": 2,
+            "expressId": "754792134",
+            "sender": "张三",
+            "receiver": "李四",
+            "submitTime": "2023-6-24 08:53",
+            "company": "逆风速运",
+            "weight": "100kg"
+        },
+        {
+            "id": 3,
+            "expressId": "754792134",
+            "sender": "张三",
+            "receiver": "李四",
+            "submitTime": "2023-6-24 08:53",
+            "company": "逆风速运",
+            "weight": "100kg"
+        },
+        {
+            "id": 4,
+            "expressId": "754792134",
+            "sender": "张三",
+            "receiver": "李四",
+            "submitTime": "2023-6-24 08:53",
+            "company": "逆风速运",
+            "weight": "100kg"
+        }
+    ],
+    "pageTotal": 4
+}

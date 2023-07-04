@@ -183,6 +183,16 @@ const routes: RouteRecordRaw[] = [
                 component: () => import(/* webpackChunkName: "import" */ '../views/processingDetail.vue'),
             },
             {
+                path: '/express',
+                name: 'express',
+                meta: {
+                    title: '物流管理',
+                    permiss: '16',
+
+                },
+                component: () => import('../views/express.vue'),
+            },
+            {
                 path: '/expressDetail',
                 name: 'expressDetail',
                 meta: {
@@ -191,6 +201,36 @@ const routes: RouteRecordRaw[] = [
 
                 },
                 component: () => import('../views/expressDetail.vue'),
+            },
+            {
+                path: '/expressDetail',
+                name: 'expressDetail',
+                meta: {
+                    title: '物流详情',
+                    permiss: '16',
+
+                },
+                component: () => import('../views/expressDetail.vue'),
+            },
+            {
+                path: '/insurance',
+                name: 'insurance',
+                meta: {
+                    title: '保险管理',
+                    permiss: '16',
+
+                },
+                component: () => import('../views/insurance.vue'),
+            },
+            {
+                path: '/insuranceDetail',
+                name: 'insuranceDetail',
+                meta: {
+                    title: '保险详情',
+                    permiss: '16',
+
+                },
+                component: () => import('../views/insuranceDetail.vue'),
             },
         ],
     },
