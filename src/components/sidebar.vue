@@ -145,11 +145,36 @@ const items = [
         permiss: '13',
     },
     {
+        icon: 'Setting',
+        index: '/processing',
+        title: '加工平台',
+        permiss: '15',
+    },
+    {
         icon: 'CoffeeCup',
         index: '/donate',
         title: '支持作者',
         permiss: '14',
     },
+    {
+        icon: 'CoffeeCup',
+        index: '5',
+        title: '贷款管理',
+        permiss: '15',
+        subs: [
+            {
+                index: '/loans',
+                title: '贷款查看',
+                permiss:'15',
+            },
+            {
+                index: '/loansReview',
+                title: '贷款审核',
+                permiss:'15',
+            },
+        ]
+    },
+    
 ];
 
 const route = useRoute();

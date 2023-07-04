@@ -5,7 +5,7 @@
             "lender": "李四",
             "begintime": "2023-6-15",
             "closetime": "2023-7-15",
-            "state": "已还款"
+            "amount": 3000
         },
         {
             "id": 2,
@@ -13,7 +13,7 @@
             "lender": "李四",
             "begintime": "2023-6-15",
             "closetime": "2023-7-15",
-            "state": "未还款"
+            "amount": 3000
         },
         {
             "id": 3,
@@ -21,7 +21,7 @@
             "lender": "李四",
             "begintime": "2023-6-15",
             "closetime": "2023-7-15",
-            "state": "待还款"
+            "amount": 3000
         },
         {
             "id": 4,
@@ -29,7 +29,7 @@
             "lender": "李四",
             "begintime": "2023-6-15",
             "closetime": "2023-7-15",
-            "state": "待审核"
+            "amount": 3000
         }
     ],
     "pageTotal": 4

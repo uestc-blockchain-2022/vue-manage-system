@@ -137,6 +137,61 @@ const routes: RouteRecordRaw[] = [
                 },
                 component: () => import(/* webpackChunkName: "import" */ '../views/import.vue'),
             },
+            {
+                path: '/loans',
+                name: 'loans',
+                meta: {
+                    title: '贷款管理',
+                    permiss: '15',
+                },
+                component: () => import(/* webpackChunkName: "import" */ '../views/loans.vue'),
+            },
+            {
+                path: '/loansReview',
+                name: 'loansReview',
+                meta: {
+                    title: '贷款审核',
+                    permiss: '15',
+                },
+                component: () => import(/* webpackChunkName: "import" */ '../views/loansReview.vue'),
+            },
+            {
+                path: '/loanDetail',
+                name: 'loanDetail',
+                meta: {
+                    title: '贷款单详情',
+                    permiss: '15',
+                },
+                component: () => import(/* webpackChunkName: "import" */ '../views/loanDetail.vue'),
+            },
+            {
+                path: '/processing',
+                name: 'processing',
+                meta: {
+                    title: '加工平台',
+                    permiss: '16',
+                },
+                component: () => import(/* webpackChunkName: "import" */ '../views/processing.vue'),
+            },
+            {
+                path: '/processingDetail',
+                name: 'processingDetail',
+                meta: {
+                    title: '加工详单',
+                    permiss: '16',
+                },
+                component: () => import(/* webpackChunkName: "import" */ '../views/processingDetail.vue'),
+            },
+            {
+                path: '/expressDetail',
+                name: 'expressDetail',
+                meta: {
+                    title: '物流详情',
+                    permiss: '16',
+
+                },
+                component: () => import('../views/expressDetail.vue'),
+            },
         ],
     },
     {
