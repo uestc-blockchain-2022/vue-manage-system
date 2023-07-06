@@ -115,17 +115,17 @@ const getData = (url : string) => {
 	});
 	console.log(tableData.value)
 };
-getData('/table.json');
+getData('/loanInfoTable.json');
 
 // 查询操作
 const handleSearch = () => {
 	query.pageIndex = 1;
-	getData('/table.json');
+	getData('/loanInfoTable.json');
 };
 // 分页导航
 const handlePageChange = (val: number) => {
 	query.pageIndex = val;
-	getData('/table.json');
+	getData('/loanInfoTable.json');
 };
 
 // 删除操作

@@ -1,0 +1,36 @@
+{
+    "list": [{
+            "id": 1,
+            "borrower": "张三",
+            "lender": "李四",
+            "begintime": "2023-6-15",
+            "closetime": "2023-7-15",
+            "state": "已还款"
+        },
+        {
+            "id": 2,
+            "borrower": "张三",
+            "lender": "李四",
+            "begintime": "2023-6-15",
+            "closetime": "2023-7-15",
+            "state": "未还款"
+        },
+        {
+            "id": 3,
+            "borrower": "张三",
+            "lender": "李四",
+            "begintime": "2023-6-15",
+            "closetime": "2023-7-15",
+            "state": "待还款"
+        },
+        {
+            "id": 4,
+            "borrower": "张三",
+            "lender": "李四",
+            "begintime": "2023-6-15",
+            "closetime": "2023-7-15",
+            "state": "待审核"
+        }
+    ],
+    "pageTotal": 4
+}
