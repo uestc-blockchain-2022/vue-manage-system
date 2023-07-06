@@ -1,35 +1,47 @@
 {
     "list": [{
             "id": 1,
-            "borrower": "张三",
-            "lender": "李四",
-            "begintime": "2023-6-15",
-            "closetime": "2023-7-15",
-            "state": "已还款"
+            "name": "T恤",
+            "code": "20230134554",
+            "money": 123,
+            "address": "干活穿的衣服夏季建筑工地上班耐脏耐磨速干短袖T恤男士宽松百搭",
+            "state": "已发布",
+            "date": "2019-11-1",
+            "num": "11",
+            "thumb": "https://lin-xin.gitee.io/images/post/wms.png"
         },
         {
             "id": 2,
-            "borrower": "张三",
-            "lender": "李四",
-            "begintime": "2023-6-15",
-            "closetime": "2023-7-15",
-            "state": "未还款"
+            "name": "休闲运动裤",
+            "code": "20230134554",
+            "money": 456,
+            "address": "清仓捡漏专柜撤回尾单男装冰丝裤子夏季超薄款宽松直筒休闲运动裤",
+            "state": "上架中",
+            "date": "2019-10-11",
+            "num": "12",
+            "thumb": "https://lin-xin.gitee.io/images/post/node3.png"
         },
         {
             "id": 3,
-            "borrower": "张三",
-            "lender": "李四",
-            "begintime": "2023-6-15",
-            "closetime": "2023-7-15",
-            "state": "待还款"
+            "name": "沙宣洗发水",
+            "code": "20230134554",
+            "money": 789,
+            "address": "沙宣洗发水露去屑柔顺女/去油蓬松男旗舰店官网正品",
+            "state": "已下架",
+            "date": "2019-11-11",
+            "num": "17",
+            "thumb": "https://lin-xin.gitee.io/images/post/parcel.png"
         },
         {
             "id": 4,
-            "borrower": "张三",
-            "lender": "李四",
-            "begintime": "2023-6-15",
-            "closetime": "2023-7-15",
-            "state": "待审核"
+            "name": "滴露衣物除菌液",
+            "code": "20230134554",
+            "money": 1011,
+            "address": "滴露衣物除菌液1.5L/3L洗衣杀菌除螨内衣衣物消毒液",
+            "state": "上架中",
+            "date": "2019-10-20",
+            "num": "22",
+            "thumb": "https://lin-xin.gitee.io/images/post/notice.png"
         }
     ],
     "pageTotal": 4

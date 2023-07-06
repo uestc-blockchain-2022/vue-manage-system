@@ -2,21 +2,23 @@
 	<div>
 		<div class="container">
 			<div class="handle-box">
-				<el-select v-model="query.address" placeholder="地址" class="handle-select mr10">
-					<el-option key="1" label="广东省" value="广东省"></el-option>
-					<el-option key="2" label="湖南省" value="湖南省"></el-option>
+				<el-select v-model="query.address" placeholder="种类" class="handle-select mr10">
+					<el-option key="1" label="服装" value="服装"></el-option>
+					<el-option key="2" label="洗发水" value="洗发水"></el-option>
 				</el-select>
-				<el-input v-model="query.name" placeholder="用户名" class="handle-input mr10"></el-input>
+				<el-input v-model="query.name" placeholder="商品名" class="handle-input mr10"></el-input>
 				<el-button type="primary" :icon="Search" @click="handleSearch">搜索</el-button>
 				<el-button type="primary" :icon="Plus">新增</el-button>
 			</div>
 			<el-table :data="tableData" border class="table" ref="multipleTable" header-cell-class-name="table-header">
 				<el-table-column prop="id" label="ID" width="55" align="center"></el-table-column>
-				<el-table-column prop="name" label="用户名"></el-table-column>
-				<el-table-column label="账户余额">
+				<el-table-column prop="name" label="商品名"></el-table-column>
+				<el-table-column prop="code" label="库存编码"></el-table-column>
+				<el-table-column prop="num" label="库存数量"></el-table-column>
+				<el-table-column label="商品价格">
 					<template #default="scope">￥{{ scope.row.money }}</template>
 				</el-table-column>
-				<el-table-column label="头像(查看大图)" align="center">
+				<el-table-column label="商品图片(查看大图)" align="center">
 					<template #default="scope">
 						<el-image
 							class="table-td-thumb"
@@ -28,7 +30,7 @@
 						</el-image>
 					</template>
 				</el-table-column>
-				<el-table-column prop="address" label="地址"></el-table-column>
+				<el-table-column prop="address" label="描述"></el-table-column>
 				<el-table-column label="状态" align="center">
 					<template #default="scope">
 						<el-tag

@@ -65,30 +65,30 @@ const items = [
     {
         icon: 'Calendar',
         index: '1',
-        title: '表格相关',
+        title: '交易系统',
         permiss: '2',
         subs: [
             {
                 index: '/table',
-                title: '常用表格',
-                permiss: '2',
-            },
-            {
-                index: '/import',
-                title: '导入Excel',
+                title: '货权管理',
                 permiss: '2',
             },
             {
                 index: '/export',
-                title: '导出Excel',
+                title: '资产交易',
+                permiss: '2',
+            },
+            {
+                index: '/detail',
+                title: '货权详情',
                 permiss: '2',
             },
         ],
     },
     {
         icon: 'DocumentCopy',
-        index: '/tabs',
-        title: 'tab选项卡',
+        index: '/scan',
+        title: '区块浏览器',
         permiss: '3',
     },
     {
