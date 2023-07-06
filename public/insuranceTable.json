@@ -1,0 +1,41 @@
+{
+    "list": [
+        {
+            "id": 1,
+            "insuranceId": "754792134",
+            "client": "张三",
+            "company": "众泰保险",
+            "orderId": "0374836245",
+            "cargo": "易碎品运输险",
+            "amount": 100000
+        },
+        {
+            "id": 2,
+            "insuranceId": "754792134",
+            "client": "张三",
+            "company": "众泰保险",
+            "orderId": "0374836245",
+            "cargo": "易碎品运输险",
+            "amount": 100000
+        },
+        {
+            "id": 3,
+            "insuranceId": "754792134",
+            "client": "张三",
+            "company": "众泰保险",
+            "orderId": "0374836245",
+            "cargo": "易碎品运输险",
+            "amount": 100000
+        },
+        {
+            "id": 4,
+            "insuranceId": "754792134",
+            "client": "张三",
+            "company": "众泰保险",
+            "orderId": "0374836245",
+            "cargo": "易碎品运输险",
+            "amount": 100000
+        }
+    ],
+    "pageTotal": 4
+}

@@ -146,6 +146,101 @@ const routes: RouteRecordRaw[] = [
                 },
                 component: () => import(/* webpackChunkName: "detail" */ '../views/detail.vue'),
             },
+            {
+                path: '/loans',
+                name: 'loans',
+                meta: {
+                    title: '贷款管理',
+                    permiss: '15',
+                },
+                component: () => import(/* webpackChunkName: "import" */ '../views/loans.vue'),
+            },
+            {
+                path: '/loansReview',
+                name: 'loansReview',
+                meta: {
+                    title: '贷款审核',
+                    permiss: '15',
+                },
+                component: () => import(/* webpackChunkName: "import" */ '../views/loansReview.vue'),
+            },
+            {
+                path: '/loanDetail',
+                name: 'loanDetail',
+                meta: {
+                    title: '贷款单详情',
+                    permiss: '15',
+                },
+                component: () => import(/* webpackChunkName: "import" */ '../views/loanDetail.vue'),
+            },
+            {
+                path: '/processing',
+                name: 'processing',
+                meta: {
+                    title: '加工平台',
+                    permiss: '16',
+                },
+                component: () => import(/* webpackChunkName: "import" */ '../views/processing.vue'),
+            },
+            {
+                path: '/processingDetail',
+                name: 'processingDetail',
+                meta: {
+                    title: '加工详单',
+                    permiss: '16',
+                },
+                component: () => import(/* webpackChunkName: "import" */ '../views/processingDetail.vue'),
+            },
+            {
+                path: '/express',
+                name: 'express',
+                meta: {
+                    title: '物流管理',
+                    permiss: '16',
+
+                },
+                component: () => import('../views/express.vue'),
+            },
+            {
+                path: '/expressDetail',
+                name: 'expressDetail',
+                meta: {
+                    title: '物流详情',
+                    permiss: '16',
+
+                },
+                component: () => import('../views/expressDetail.vue'),
+            },
+            {
+                path: '/expressDetail',
+                name: 'expressDetail',
+                meta: {
+                    title: '物流详情',
+                    permiss: '16',
+
+                },
+                component: () => import('../views/expressDetail.vue'),
+            },
+            {
+                path: '/insurance',
+                name: 'insurance',
+                meta: {
+                    title: '保险管理',
+                    permiss: '16',
+
+                },
+                component: () => import('../views/insurance.vue'),
+            },
+            {
+                path: '/insuranceDetail',
+                name: 'insuranceDetail',
+                meta: {
+                    title: '保险详情',
+                    permiss: '16',
+
+                },
+                component: () => import('../views/insuranceDetail.vue'),
+            },
             // {
             //     path: '/import',
             //     name: 'import',
