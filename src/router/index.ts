@@ -25,7 +25,7 @@ const routes: RouteRecordRaw[] = [
                 path: '/table',
                 name: 'basetable',
                 meta: {
-                    title: '表格',
+                    title: '货权管理',
                     permiss: '2',
                 },
                 component: () => import(/* webpackChunkName: "table" */ '../views/table.vue'),
@@ -56,6 +56,15 @@ const routes: RouteRecordRaw[] = [
                     permiss: '3',
                 },
                 component: () => import(/* webpackChunkName: "tabs" */ '../views/tabs.vue'),
+            },
+            {
+                path: '/scan',
+                name: 'scan',
+                meta: {
+                    title: '区块浏览器',
+                    permiss: '3',
+                },
+                component: () => import(/* webpackChunkName: "tabs" */ '../views/scan.vue'),
             },
             {
                 path: '/donate',
@@ -123,20 +132,29 @@ const routes: RouteRecordRaw[] = [
                 path: '/export',
                 name: 'export',
                 meta: {
-                    title: '导出Excel',
+                    title: '资产交易',
                     permiss: '2',
                 },
                 component: () => import(/* webpackChunkName: "export" */ '../views/export.vue'),
             },
             {
-                path: '/import',
-                name: 'import',
+                path: '/detail',
+                name: 'detail',
                 meta: {
-                    title: '导入Excel',
+                    title: '货权详情',
                     permiss: '2',
                 },
-                component: () => import(/* webpackChunkName: "import" */ '../views/import.vue'),
+                component: () => import(/* webpackChunkName: "detail" */ '../views/detail.vue'),
             },
+            // {
+            //     path: '/import',
+            //     name: 'import',
+            //     meta: {
+            //         title: '货权详情',
+            //         permiss: '2',
+            //     },
+            //     component: () => import(/* webpackChunkName: "import" */ '../views/import.vue'),
+            // },
         ],
     },
     {

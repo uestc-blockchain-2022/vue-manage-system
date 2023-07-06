@@ -6,11 +6,13 @@
             </div>
             <el-table :data="tableData" border class="table" header-cell-class-name="table-header">
                 <el-table-column prop="id" label="ID" width="55" align="center"></el-table-column>
-                <el-table-column prop="name" label="姓名"></el-table-column>
-                <el-table-column prop="sno" label="学号"></el-table-column>
-                <el-table-column prop="class" label="班级"></el-table-column>
-                <el-table-column prop="age" label="年龄"></el-table-column>
-                <el-table-column prop="sex" label="性别"></el-table-column>
+                <el-table-column prop="name" label="订单号"></el-table-column>
+                <el-table-column prop="sno" label="商品号"></el-table-column>
+                <el-table-column prop="code" label="商品编码"></el-table-column>
+                <el-table-column prop="class" label="购买数量"></el-table-column>
+                <el-table-column prop="age" label="下单金额"></el-table-column>
+                <el-table-column prop="sex" label="买家id"></el-table-column>
+                <el-table-column prop="status" label="交易状态"></el-table-column>
             </el-table>
         </div>
     </div>
@@ -24,9 +26,11 @@ interface TableItem {
     id: number;
     name: string;
     sno: string;
+    code: string;
     class: string;
     age: string;
     sex: string;
+    status: string;
 }
 
 const tableData = ref<TableItem[]>([]);
@@ -35,19 +39,23 @@ const getData = () => {
     tableData.value = [
         {
             id: 1,
-            name: '小明',
+            name: 'JWCD2023062301',
             sno: 'S001',
-            class: '一班',
-            age: '10',
-            sex: '男',
+            code: 'TE20230134554',
+            class: '12',
+            age: '￥123',
+            sex: '100010',
+            status: '已付款',
         },
         {
             id: 2,
-            name: '小红',
+            name: 'JWCD2023062302',
             sno: 'S002',
-            class: '一班',
-            age: '9',
-            sex: '女',
+            code: 'TE20230134554',
+            class: '13',
+            age: '￥224',
+            sex: '100011',
+            status: '已发货',
         },
     ];
 };
