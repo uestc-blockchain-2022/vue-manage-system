@@ -65,7 +65,7 @@ const items = [
     {
         icon: 'Calendar',
         index: '1',
-        title: '交易系统',
+        title: '仓储系统',
         permiss: '2',
         subs: [
             {
@@ -74,22 +74,47 @@ const items = [
                 permiss: '2',
             },
             {
+                index: '/detail2',
+                title: '仓储入库',
+                permiss: '2',
+            },
+        ],
+    },
+    {
+        icon: 'Calendar',
+        index: '81',
+        title: '交易系统',
+        permiss: '2',
+        subs: [
+            {
                 index: '/export',
                 title: '资产交易',
                 permiss: '2',
             },
             {
                 index: '/detail',
-                title: '货权详情',
+                title: '交易详情',
                 permiss: '2',
             },
         ],
     },
     {
         icon: 'DocumentCopy',
-        index: '/scan',
-        title: '区块浏览器',
-        permiss: '3',
+        index: '91',
+        title: '平台管理',
+        permiss: '2',
+        subs: [
+            {
+                index: '/scan',
+                title: '平台总览',
+                permiss: '2',
+            },
+            {
+                index: '/scannode',
+                title: '区块查询',
+                permiss: '2',
+            },
+        ],
     },
     {
         icon: 'Edit',

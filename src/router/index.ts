@@ -58,6 +58,15 @@ const routes: RouteRecordRaw[] = [
                 component: () => import(/* webpackChunkName: "tabs" */ '../views/tabs.vue'),
             },
             {
+                path: '/scannode',
+                name: 'scannode',
+                meta: {
+                    title: '区块查询',
+                    permiss: '3',
+                },
+                component: () => import(/* webpackChunkName: "tabs" */ '../views/scannode.vue'),
+            },
+            {
                 path: '/scan',
                 name: 'scan',
                 meta: {
@@ -141,10 +150,18 @@ const routes: RouteRecordRaw[] = [
                 path: '/detail',
                 name: 'detail',
                 meta: {
-                    title: '货权详情',
+                    title: '交易详情',
                     permiss: '2',
                 },
                 component: () => import(/* webpackChunkName: "detail" */ '../views/detail.vue'),
+            },  {
+                path: '/detail2',
+                name: 'detail2',
+                meta: {
+                    title: '仓储入库',
+                    permiss: '2',
+                },
+                component: () => import(/* webpackChunkName: "detail" */ '../views/detail2.vue'),
             },
             {
                 path: '/loans',
@@ -245,7 +262,7 @@ const routes: RouteRecordRaw[] = [
             //     path: '/import',
             //     name: 'import',
             //     meta: {
-            //         title: '货权详情',
+            //         title: '交易详情',
             //         permiss: '2',
             //     },
             //     component: () => import(/* webpackChunkName: "import" */ '../views/import.vue'),

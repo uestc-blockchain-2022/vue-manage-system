@@ -1,8 +1,13 @@
 <template>
 	<div>
 		<el-row :gutter="20">
-			<el-col :span="18">
-				<el-card shadow="hover" class="mgb20" style="height: 252px">
+			<el-col  >
+				<el-card shadow="hover" class="mgb20"  >
+					<template #header>
+						<div class="clearfix">
+							<span>基本信息</span>
+						</div>
+					</template>
 					<div class="user-info">
 						<el-avatar :size="120" :src="'https://lin-xin.gitee.io/images/post/parcel.png'" />
 						<div class="user-info-cont">
@@ -10,29 +15,87 @@
 							<div>沙宣洗发水露去屑柔顺女/去油蓬松男旗舰店官网正品</div>
 						</div>
 					</div>
-					<div class="user-info-list">
-						商品编码
-						<span>GR2023043221034</span>
-					</div>
-					<div class="user-info-list">
-						商品类型
-						<span>XFS</span>
-					</div>
+					<el-row :gutter="20">
+						<el-col :span="12">
+							<div class="user-info-list">
+								商品编码
+								<span>GR2023043221034</span>
+							</div>
+							<div class="user-info-list">
+								商品类型
+								<span>XFS</span>
+							</div>
+						</el-col>
+						<el-col :span="12">
+							<div class="user-info-list">
+								库存编码
+								<span>201702121</span>
+							</div>
+							<div class="user-info-list">
+								商品货位
+								<span>0518</span>
+							</div>
+						</el-col>
+					</el-row>
 				</el-card>
-				<el-card shadow="hover" style="height: 252px">
+				<el-card shadow="hover" style=" ">
 					<template #header>
 						<div class="clearfix">
-							<span>材质</span>
+							<span>货权生命周期</span>
 						</div>
 					</template>
-					香波
-					<el-progress :percentage="79.4" color="#42b983"></el-progress>
-					硫酸钠
-					<el-progress :percentage="14" color="#f1e05a"></el-progress>
-					钠/钾/盐
-					<el-progress :percentage="5.6"></el-progress>
-					两性表活
-					<el-progress :percentage="1" color="#f56c6c"></el-progress>
+					<ul>
+						<li class="icon-li center" v-for="(item, index) in statusList" :key="index">
+							<div >
+								<div class="circle center mgt10" :style=" {'background-color' :  item.color  }">{{ item.text }}</div>
+								<div class="mgt10">{{item.date}}</div>
+								<div  >详情</div>
+							</div>
+						</li>
+							
+					</ul>
+				</el-card>
+
+				<el-card shadow="hover" style=" ">
+					<el-row :gutter="20">
+						<el-col :span="8">
+							<div class="mgb20">交易哈希值：2a73c1193bf337f8c68942a42f63c51db4f5cd06</div>
+							<div class="user-info-list">
+								<span>业务类型：</span>
+								<span>洗发水</span>
+							</div>
+							<div class="user-info-list">
+								<span>交易类型：</span>
+								<span>仓库划拨</span>
+							</div>
+						</el-col>
+						<el-col :span="8">
+							<div class="mgb20">所在区块信息</div>
+							<div class="user-info-list">
+								<span>区块高度：</span>
+								<span>66454</span>
+							</div>
+							<div class="user-info-list">
+								<span>创建时间</span>
+								<span>2023-12-10 18:04:22</span>
+							</div>
+						</el-col>
+						<el-col :span="8">
+							<div class="mgb20">共识信息</div>
+							<div class="user-info-list">
+								<span>确认节点：</span>
+								<span>仓储节点</span>
+							</div>
+							<div class="user-info-list">
+								<span>确认时间：</span>
+								<span>2023-12-11 21:04:22</span>
+							</div>
+							<div class="user-info-list">
+								<span>确认状态：</span>
+								<span>已确认</span>
+							</div>
+						</el-col>
+					</el-row>
 				</el-card>
 			</el-col>
 		 
@@ -103,32 +166,38 @@ const options2 = {
 		}
 	]
 };
-const todoList = reactive([
+const statusList =  [
 	{
-		title: '今天要修复100个bug',
-		status: false
+		text: '创建订单',
+		date: '2017-07-01 18:02:22',
+		color: "rgb(43,194,159)",
 	},
 	{
-		title: '今天要修复100个bug',
-		status: false
+		text: '贷款',
+		date: '2017-07-01 18:02:22',
+		color: "#FF8774",
 	},
 	{
-		title: '今天要写100行代码加几个bug吧',
-		status: false
+		text: '货物加工',
+		date: '2017-07-01 18:02:22',
+		color: "rgb(253,182,54)",
 	},
 	{
-		title: '今天要修复100个bug',
-		status: false
+		text: '仓储',
+		date: '2017-07-01 18:02:22',
+		color: "rgb(140, 196, 51)",
 	},
 	{
-		title: '今天要修复100个bug',
-		status: true
+		text: '物流',
+		date: '2017-07-01 18:02:22',
+		color: "rgb(96,91,217)",
 	},
 	{
-		title: '今天要写100行代码加几个bug吧',
-		status: true
-	}
-]);
+		text: '保险',
+		date: '2017-07-01 18:02:22',
+		color: "rgb(56,157,239)",
+	},
+];
 </script>
 
 <style scoped>
@@ -214,7 +283,9 @@ const todoList = reactive([
 }
 
 .user-info-list span {
-	margin-left: 70px;
+	margin-left: 30px;
+	width: 150px;
+	display: inline-block;
 }
 
 .mgb20 {
@@ -233,5 +304,28 @@ const todoList = reactive([
 .schart {
 	width: 100%;
 	height: 300px;
+}
+
+
+.mgt10 {
+	margin-top: 10px;
+}
+.circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+	margin: auto;
+	color: #fff;
+  background-color: #000; /* 设置背景颜色 */
+}
+.center {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icon-li {
+    display: inline-block;
+		margin-right: 60px;
 }
 </style>

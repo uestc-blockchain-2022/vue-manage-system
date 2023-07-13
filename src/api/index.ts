@@ -6,3 +6,9 @@ export const fetchData = (url : string) => {
         method: 'get'
     });
 };
+export const fetchDataNode = () => {
+    return request({
+        url: './node.json',
+        method: 'get'
+    });
+};
