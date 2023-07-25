@@ -70,7 +70,7 @@ const items = [
         subs: [
             {
                 index: '/table',
-                title: '货权管理',
+                title: '商品列表',
                 permiss: '2',
             },
             {
@@ -88,7 +88,7 @@ const items = [
         subs: [
             {
                 index: '/export',
-                title: '资产交易',
+                title: '交易订单',
                 permiss: '2',
             },
             {

@@ -12,9 +12,11 @@
 			</div>
 			<el-table :data="tableData" border class="table" ref="multipleTable" header-cell-class-name="table-header">
 				<el-table-column prop="id" label="ID" width="55" align="center"></el-table-column>
-				<el-table-column prop="name" label="商品名"></el-table-column>
-				<el-table-column prop="code" label="库存编码"></el-table-column>
-				<el-table-column prop="num" label="库存数量"></el-table-column>
+				<el-table-column prop="code" label="产品编码"></el-table-column>
+				<el-table-column prop="name" label="名称"></el-table-column>
+				<el-table-column prop="type" label="类型"></el-table-column>
+				<el-table-column prop="num" label="库存"></el-table-column>
+				<el-table-column prop="unit" label="单位"></el-table-column>
 				<el-table-column label="商品价格">
 					<template #default="scope">￥{{ scope.row.money }}</template>
 				</el-table-column>

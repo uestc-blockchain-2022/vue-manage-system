@@ -25,7 +25,7 @@ const routes: RouteRecordRaw[] = [
                 path: '/table',
                 name: 'basetable',
                 meta: {
-                    title: '货权管理',
+                    title: '商品列表',
                     permiss: '2',
                 },
                 component: () => import(/* webpackChunkName: "table" */ '../views/table.vue'),
@@ -141,7 +141,7 @@ const routes: RouteRecordRaw[] = [
                 path: '/export',
                 name: 'export',
                 meta: {
-                    title: '资产交易',
+                    title: '交易订单',
                     permiss: '2',
                 },
                 component: () => import(/* webpackChunkName: "export" */ '../views/export.vue'),
