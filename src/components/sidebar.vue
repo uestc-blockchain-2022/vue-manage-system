@@ -139,16 +139,45 @@ const items = [
         permiss: '11',
     },
     {
-        icon: 'Warning',
-        index: '/permission',
-        title: '权限管理',
+        icon: 'Operation',
+        index: '6',
+        title: '系统管理',
         permiss: '13',
+        subs: [
+            {
+                index:'/userManage',
+                title:'用户管理',
+                permiss:'13'
+            },
+            {
+                index:'/permission',
+                title:'权限管理',
+                permiss:'13'
+            }
+        ]
     },
     {
         icon: 'Setting',
-        index: '/processing',
+        index: '7',
         title: '加工平台',
         permiss: '15',
+        subs: [
+            {
+                index: '/processing',
+                title: '加工管理',
+                permiss: '15',
+            },
+            {
+                index: 'processingMarket',
+                title: '加工市场',
+                permiss: '15',
+            },
+            {
+                index: 'processingOwned',
+                title: '我的加工',
+                permiss: '15',
+            }
+        ]
     },
     {
         icon: 'CoffeeCup',

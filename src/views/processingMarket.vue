@@ -8,14 +8,7 @@
 					placeholder="申请时间"
 					size='default'
       			/>
-				<el-input v-model="query.secondParty" placeholder="承接方" class="handle-input mr10"></el-input>
-                <el-select v-model="query.state" placeholder="状态" class="handle-select mr10">
-					<el-option key="1" label="待承接" value="待承接"></el-option>
-					<el-option key="2" label="加工中" value="加工中"></el-option>
-                    <el-option key="2" label="已完成" value="已完成"></el-option>
-				</el-select>
 				<el-button type="primary" :icon="Search" @click="handleSearch">搜索</el-button>
-				<el-button type="primary" :icon="Plus">新增</el-button>
 			</div>
 			<el-table :data="tableData" border class="table" ref="multipleTable" header-cell-class-name="table-header">
 				<el-table-column prop="id" label="ID" width="55" align="center"></el-table-column>
@@ -24,24 +17,11 @@
 				<el-table-column prop="sellerId" label="商家编号"></el-table-column>
                 <el-table-column prop="submitTime" label="申请时间"></el-table-column>
 				<el-table-column prop="quantity" label="加工数目"></el-table-column>
-                <el-table-column prop="secondParty" label="承接方"></el-table-column>
                 <el-table-column prop="demand" label="加工需求"></el-table-column>
-				<el-table-column label="状态" align="center">
-					<template #default="scope">
-						<el-tag
-							:type="scope.row.state === '已完成' ? 'success' : scope.row.state === '待承接' ? 'warning'  : ''">
-							{{ scope.row.state }}
-						</el-tag>
-					</template>
-				</el-table-column>
 				<el-table-column label="操作" width="320" align="center">
 					<template #default="scope">
-						<el-button text :icon="View" @click="handleDetail()" v-permiss="15">详情</el-button>
-						<el-button text :icon="Edit" @click="handleEdit(scope.$index, scope.row)" v-permiss="15">
-							编辑
-						</el-button>
-						<el-button text :icon="Delete" class="red" @click="handleDelete(scope.$index)" v-permiss="16">
-							删除
+						<el-button @click="handleEdit(scope.$index, scope.row)" v-permiss="15">
+							承接
 						</el-button>
 					</template>
 				</el-table-column>
@@ -82,9 +62,10 @@
 import { ref, reactive } from 'vue';
 import { ElMessage, ElMessageBox } from 'element-plus';
 import { Delete, Edit, Search, Plus, View } from '@element-plus/icons-vue';
-import { fetchData } from '../api/index';
-import router from '../router/index'
+import { fetchData , putData } from '../api/index';
 import { useProcessingStore } from '../store/processingInfo';
+import router from '../router/index'
+import { StrokeStyle } from 'vue3-baidu-map-gl';
 interface TableItem {
 	id: number;
 	processingId: string;
@@ -96,6 +77,7 @@ interface TableItem {
     demand: string;
 	state: string;
 }
+
 const query = reactive({
 	reqDate: '',
 	secondParty: '',
@@ -103,14 +85,17 @@ const query = reactive({
 	pageIndex: 1,
 	pageSize: 10
 });
-const tableData = ref<TableItem[]>([]);
+// const tableData = ref<TableItem[]>([]);
+let username = localStorage.getItem('ms_username');
+const processingData = useProcessingStore();
+let tableData = ref<TableItem[]>([]);
+tableData.value = processingData.getWaiting;
 const pageTotal = ref(0);
 //日期查询
 const startDateValue = ref('');
 const closeDateValue = ref('');
 // 获取表格数据
-let processingData = useProcessingStore();
-tableData.value = processingData.getAll;
+
 // 查询操作
 const handleSearch = () => {
 	query.pageIndex = 1;
@@ -120,23 +105,7 @@ const handlePageChange = (val: number) => {
 	query.pageIndex = val;
 };
 
-// 删除操作
-const handleDelete = (index: number) => {
-	// 二次确认删除
-	ElMessageBox.confirm('确定要删除吗？', '提示', {
-		type: 'warning'
-	})
-		.then(() => {
-			ElMessage.success('删除成功');
-			tableData.value.splice(index, 1);
-		})
-		.catch(() => {});
-};
 
-function handleDetail(this : any) 
-{
-	router.push('processingDetail');
-};
 // 表格编辑时弹窗和保存
 const editVisible = ref(false);
 let form = reactive({
@@ -149,6 +118,8 @@ const handleEdit = (index: number, row: any) => {
 	//form.name = row.name;
 	//form.address = row.address;
 	//editVisible.value = true;
+    processingData.setStateById(row.id,'加工中',username as string);
+	tableData.value = processingData.getWaiting;
 };
 const saveEdit = () => {
 	//editVisible.value = false;
@@ -156,6 +127,7 @@ const saveEdit = () => {
 	//tableData.value[idx].name = form.name;
 	//tableData.value[idx].address = form.address;
 };
+
 </script>
 
 <style scoped>

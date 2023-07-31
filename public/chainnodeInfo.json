@@ -1,0 +1,41 @@
+{
+    "list": [
+        {
+            "name": "电商节点",
+            "position": "西宁\n192.10.10.22",
+            "state": "已启用",
+            "isSync": false,
+            "blockHeight": "651178",
+            "hash": "0x29a5bc486e645f199a688e64f34cf56ae68fb",
+            "time": "2023-7-11 16:08"
+        },
+        {
+            "name": "电商节点",
+            "position": "西宁\n192.10.10.22",
+            "state": "已启用",
+            "isSync": false,
+            "blockHeight": "651178",
+            "hash": "0x29a5bc486e645f199a688e64f34cf56ae68fb",
+            "time": "2023-7-11 16:08"
+        },
+        {
+            "name": "电商节点",
+            "position": "西宁\n192.10.10.22",
+            "state": "已启用",
+            "isSync": true,
+            "blockHeight": "651178",
+            "hash": "0x29a5bc486e645f199a688e64f34cf56ae68fb",
+            "time": "2023-7-11 16:08"
+        },
+        {
+            "name": "电商节点",
+            "position": "西宁\n192.10.10.22",
+            "state": "已启用",
+            "isSync": true,
+            "blockHeight": "651178",
+            "hash": "0x29a5bc486e645f199a688e64f34cf56ae68fb",
+            "time": "2023-7-11 16:08"
+        }
+    ],
+    "pageTotal": 4
+}

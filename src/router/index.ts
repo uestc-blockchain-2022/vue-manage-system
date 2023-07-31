@@ -183,6 +183,24 @@ const routes: RouteRecordRaw[] = [
                 component: () => import(/* webpackChunkName: "import" */ '../views/processing.vue'),
             },
             {
+                path: 'processingMarket',
+                name: 'processingMarket',
+                meta: {
+                    title: '加工市场',
+                    permiss:'16',
+                },
+                component: () => import('../views/processingMarket.vue'),
+            },
+            {
+                path: 'processingOwned',
+                name: 'processingOwned',
+                meta: {
+                    title: '我的加工',
+                    permiss:'16',
+                },
+                component: () => import('../views/processingOwned.vue'),
+            },
+            {
                 path: '/processingDetail',
                 name: 'processingDetail',
                 meta: {
@@ -241,6 +259,33 @@ const routes: RouteRecordRaw[] = [
                 },
                 component: () => import('../views/insuranceDetail.vue'),
             },
+            {
+                path: '/userManage',
+                name: 'userManage',
+                meta: {
+                    title: '用户管理',
+                    permiss:'16',
+                },
+                component: () => import('../views/userManage.vue'),
+            },
+            {
+                path: '/contractManage',
+                name: 'contractManage',
+                meta: {
+                    title: '合约管理',
+                    permiss:'16',
+                },
+                component: ()=> import('../views/contractManage.vue'),
+            },
+            {
+                path: 'chainnodeManage',
+                name: 'chainnodeManage',
+                meta: {
+                    title: '节点管理',
+                    permiss: '16'
+                },
+                component: ()=> import('../views/chainnodeManage.vue'),
+            }
             // {
             //     path: '/import',
             //     name: 'import',

@@ -1,47 +1,31 @@
 <template>
 	<div>
 		<div class="container">
-			<div class="handle-box">
-				<el-date-picker
-					v-model="startDateValue"
-					type="date"
-					placeholder="申请时间"
-					size='default'
-      			/>
-				<el-input v-model="query.secondParty" placeholder="承接方" class="handle-input mr10"></el-input>
-                <el-select v-model="query.state" placeholder="状态" class="handle-select mr10">
-					<el-option key="1" label="待承接" value="待承接"></el-option>
-					<el-option key="2" label="加工中" value="加工中"></el-option>
-                    <el-option key="2" label="已完成" value="已完成"></el-option>
-				</el-select>
-				<el-button type="primary" :icon="Search" @click="handleSearch">搜索</el-button>
-				<el-button type="primary" :icon="Plus">新增</el-button>
+			<div class="handle-box">  
+				<el-input v-model="query.borrower" placeholder="节点名称" class="handle-input mr10"></el-input>
+				<el-button type="primary" :icon="Plus">查询</el-button>
 			</div>
-			<el-table :data="tableData" border class="table" ref="multipleTable" header-cell-class-name="table-header">
-				<el-table-column prop="id" label="ID" width="55" align="center"></el-table-column>
-				<el-table-column prop="processingId" label="加工单号"></el-table-column>
-				<el-table-column prop="orderId" label="订单编号"></el-table-column>
-				<el-table-column prop="sellerId" label="商家编号"></el-table-column>
-                <el-table-column prop="submitTime" label="申请时间"></el-table-column>
-				<el-table-column prop="quantity" label="加工数目"></el-table-column>
-                <el-table-column prop="secondParty" label="承接方"></el-table-column>
-                <el-table-column prop="demand" label="加工需求"></el-table-column>
-				<el-table-column label="状态" align="center">
+			<el-table :data="tableData" class="table" header-cell-class-name="table-header" stripe>
+				<el-table-column prop="name" label="节点名称" width="55" align="center"></el-table-column>
+				<el-table-column prop="position" label="节点位置"></el-table-column>
+				<el-table-column prop="state" label="状态" width="70"></el-table-column>
+				<el-table-column label="同步" align="center">
 					<template #default="scope">
-						<el-tag
-							:type="scope.row.state === '已完成' ? 'success' : scope.row.state === '待承接' ? 'warning'  : ''">
-							{{ scope.row.state }}
-						</el-tag>
+						<el-tag v-if="scope.row.isSync" type="success">已同步</el-tag>
+						<el-tag v-else type="info">未同步</el-tag>
 					</template>
 				</el-table-column>
+				<el-table-column prop="blockHeight" label="区块高度"></el-table-column>
+                <el-table-column prop="hash" label="当前区块哈希值" width="350"></el-table-column>
+                <el-table-column prop="time" label="最新区块时间"></el-table-column>
 				<el-table-column label="操作" width="320" align="center">
 					<template #default="scope">
-						<el-button text :icon="View" @click="handleDetail()" v-permiss="15">详情</el-button>
-						<el-button text :icon="Edit" @click="handleEdit(scope.$index, scope.row)" v-permiss="15">
-							编辑
+						<el-button text :icon="Open" @click="handleDetail()" v-permiss="15">启动</el-button>
+						<el-button text :icon="TurnOff" class="red" @click="handleEdit(scope.$index, scope.row)" v-permiss="15">
+							关机
 						</el-button>
-						<el-button text :icon="Delete" class="red" @click="handleDelete(scope.$index)" v-permiss="16">
-							删除
+						<el-button text :icon="RefreshLeft" class="yellow" @click="handleDelete(scope.$index)" v-permiss="16">
+							重启
 						</el-button>
 					</template>
 				</el-table-column>
@@ -81,25 +65,24 @@
 <script setup lang="ts" name="basetable">
 import { ref, reactive } from 'vue';
 import { ElMessage, ElMessageBox } from 'element-plus';
-import { Delete, Edit, Search, Plus, View } from '@element-plus/icons-vue';
+import { Delete, Edit, Search, Plus, View, RefreshLeft, SwitchButton, TurnOff, Open } from '@element-plus/icons-vue';
 import { fetchData } from '../api/index';
 import router from '../router/index'
-import { useProcessingStore } from '../store/processingInfo';
 interface TableItem {
-	id: number;
-	processingId: string;
-    orderId: string;
-    sellerId: string;
-    submitTime: string;
-	quantity: number;
-    secondParty: string;
-    demand: string;
+	name: string;
+	position: string;
 	state: string;
+	isSync: boolean;
+	blockHeight: string;
+	hash: string;
+    time: string;
 }
+
 const query = reactive({
-	reqDate: '',
-	secondParty: '',
-	state: '',
+	beginDate: '',
+	closeDate: '',
+	borrower: '',
+	lender: '',
 	pageIndex: 1,
 	pageSize: 10
 });
@@ -109,15 +92,24 @@ const pageTotal = ref(0);
 const startDateValue = ref('');
 const closeDateValue = ref('');
 // 获取表格数据
-let processingData = useProcessingStore();
-tableData.value = processingData.getAll;
+const getData = (url : string) => {
+	fetchData(url).then(res => {
+		tableData.value = res.data.list;
+		pageTotal.value = res.data.pageTotal || 50;
+	});
+	console.log(tableData.value)
+};
+getData('/chainnodeInfo.json');
+
 // 查询操作
 const handleSearch = () => {
 	query.pageIndex = 1;
+	getData('/chainnodeInfo.json');
 };
 // 分页导航
 const handlePageChange = (val: number) => {
 	query.pageIndex = val;
+	getData('/chainnodeInfo.json');
 };
 
 // 删除操作
@@ -135,7 +127,7 @@ const handleDelete = (index: number) => {
 
 function handleDetail(this : any) 
 {
-	router.push('processingDetail');
+	router.push('expressDetail');
 };
 // 表格编辑时弹窗和保存
 const editVisible = ref(false);
@@ -176,6 +168,9 @@ const saveEdit = () => {
 }
 .red {
 	color: #F56C6C;
+}
+.yellow{
+	color:goldenrod;
 }
 .mr10 {
 	margin-right: 10px;
