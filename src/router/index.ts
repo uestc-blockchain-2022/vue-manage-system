@@ -147,13 +147,13 @@ const routes: RouteRecordRaw[] = [
                 component: () => import(/* webpackChunkName: "markdown" */ '../views/markdown.vue'),
             },
             {
-                path: '/export',
-                name: 'export',
+                path: '/transcation',
+                name: 'transcation',
                 meta: {
                     title: '交易订单',
                     permiss: '2',
                 },
-                component: () => import(/* webpackChunkName: "export" */ '../views/export.vue'),
+                component: () => import(/* webpackChunkName: "transcation" */ '../views/transcation.vue'),
             },
             {
                 path: '/detail',

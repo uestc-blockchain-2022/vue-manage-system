@@ -14,14 +14,62 @@
                 <el-table-column prop="age" label="下单金额"></el-table-column>
                 <el-table-column prop="sex" label="买家id"></el-table-column>
                 <el-table-column prop="status" label="交易状态"></el-table-column>
+                <el-table-column label="操作" width="220" align="center">
+					<template #default="scope">
+						<el-button text :icon="Edit" @click="handleEdit(scope.$index, scope.row)" v-permiss="15">
+							加工
+						</el-button>
+					</template>
+				</el-table-column>
             </el-table>
         </div>
+
+        
+		<!-- 编辑弹出框 -->
+		<el-dialog title="编辑" v-model="editVisible" width="30%">
+			<el-form label-width="70px">
+				<el-form-item label="加工单号">
+					<el-input v-model="form.processingId"></el-input>
+				</el-form-item>
+				<el-form-item label="订单编号">
+					<el-input v-model="form.orderId"></el-input>
+				</el-form-item>
+				<el-form-item label="商家编号">
+					<el-input v-model="form.sellerId"></el-input>
+				</el-form-item>
+				<el-form-item label="申请时间">
+					<el-input v-model="form.submitTime"></el-input>
+				</el-form-item>
+				<el-form-item label="加工数目">
+					<el-input v-model="form.quantity"></el-input>
+				</el-form-item>
+				<el-form-item label="承接方">
+					<el-input v-model="form.secondParty"></el-input>
+				</el-form-item>
+				<el-form-item label="加工需求">
+					<el-input v-model="form.demand"></el-input>
+				</el-form-item>
+			</el-form>
+			<template #footer>
+				<span class="dialog-footer">
+					<el-button @click="editVisible = false">取 消</el-button>
+					<el-button type="primary" @click="saveEdit">确 定</el-button>
+				</span>
+			</template>
+		</el-dialog>
+        
     </div>
+    
 </template>
 
 <script setup lang="ts" name="export">
-import { ref } from 'vue';
+import { ref, reactive } from 'vue';
 import * as XLSX from 'xlsx';
+import { ElMessage, ElMessageBox } from 'element-plus';
+import { Delete, Edit, Search, Plus } from '@element-plus/icons-vue';
+import { useProcessingStore } from '../store/processingInfo';
+
+let processingData = useProcessingStore();
 
 interface TableItem {
     id: number;
@@ -74,6 +122,36 @@ const exportXlsx = () => {
     XLSX.utils.book_append_sheet(new_workbook, WorkSheet, '第一页');
     XLSX.writeFile(new_workbook, `表格.xlsx`);
 };
+
+// 表格编辑时弹窗和保存
+const editVisible = ref(false);
+let form = reactive({
+	processingId: '',
+	orderId: '',
+	sellerId: '',
+	submitTime: '',
+	quantity: 0,
+	secondParty: '',
+	demand: '',
+});
+let idx: number = -1;
+const handleEdit = (index: number, row: any) => {
+	idx = index;
+	form.orderId = row.name;
+	editVisible.value = true;
+};
+const saveEdit = () => {
+	editVisible.value = false;
+    processingData.addOne(form.processingId,
+	form.orderId,
+	form.sellerId,
+	form.submitTime,
+	form.quantity,
+	form.secondParty,
+	form.demand);
+	ElMessage.success(`新增加工单成功`);
+};
+
 </script>
 
 <style scoped>

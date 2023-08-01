@@ -83,6 +83,27 @@ export const useProcessingStore = defineStore('processingInfo',{
             });
             this.list[it].state = state;
             this.list[it].secondParty = name;
+        },
+        addOne( processingId: string,
+        orderId: string,
+        sellerId: string,
+        submitTime: string,
+        quantity: number,
+        secondParty: string,
+        demand: string){
+            console.log("processingId " + processingId);
+            this.list.push({
+                id:this.list.length,
+                processingId,
+                orderId,
+                sellerId,
+                submitTime,
+                quantity,
+                secondParty,
+                demand,
+                state:"加工中"
+            });
+            console.log(this.list);
         }
     }
 })
