@@ -70,12 +70,22 @@ const items = [
         subs: [
             {
                 index: '/table',
-                title: '商品列表',
+                title: '货物清单',
                 permiss: '2',
             },
             {
-                index: '/detail2',
+                index: '/inwarehouse',
                 title: '仓储入库',
+                permiss: '2',
+            },
+            {
+                index: '/outwarehouse',
+                title: '仓储出库',
+                permiss: '2',
+            },
+            {
+                index: '/stockDetail',
+                title: '货物详情',
                 permiss: '2',
             },
         ],
@@ -86,6 +96,11 @@ const items = [
         title: '交易系统',
         permiss: '2',
         subs: [
+            {
+                index: '/goods',
+                title: '商品列表',
+                permiss: '2',
+            },
             {
                 index: '/export',
                 title: '交易订单',
@@ -175,12 +190,12 @@ const items = [
         title: '加工平台',
         permiss: '15',
     },
-    {
-        icon: 'CoffeeCup',
-        index: '/donate',
-        title: '支持作者',
-        permiss: '14',
-    },
+    // {
+    //     icon: 'CoffeeCup',
+    //     index: '/donate',
+    //     title: '支持作者',
+    //     permiss: '14',
+    // },
     {
         icon: 'CoffeeCup',
         index: '5',

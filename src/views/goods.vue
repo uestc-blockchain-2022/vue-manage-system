@@ -92,23 +92,14 @@ import { ref, reactive } from 'vue';
 import { ElMessage, ElMessageBox } from 'element-plus';
 import { Delete, Edit, Search, Plus } from '@element-plus/icons-vue';
 import { fetchData } from '../api/index';
-import { transInfoStore } from '../store/trans';
-let transInfo = transInfoStore();
-
 
 interface TableItem {
 	id: number;
 	name: string;
-	code: string;
-	money: number;
-	address: string;
+	money: string;
 	state: string;
 	date: string;
-	num: string;
-	type: string;
-	unit: string;
-	thumb: string;
-
+	address: string;
 }
 
 const query = reactive({
@@ -119,12 +110,12 @@ const query = reactive({
 });
 const tableData = ref<TableItem[]>([]);
 const pageTotal = ref(0);
-
 // 获取表格数据
 const getData = () => {
-	let res =  transInfo.getAllTable;
-	tableData.value = res.list;
-	pageTotal.value = res.pageTotal || 50;
+	fetchData("table.json").then(res => {
+		tableData.value = res.data.list;
+		pageTotal.value = res.data.pageTotal || 50;
+	});
 };
 getData();
 

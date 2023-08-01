@@ -25,10 +25,19 @@ const routes: RouteRecordRaw[] = [
                 path: '/table',
                 name: 'basetable',
                 meta: {
-                    title: '商品列表',
+                    title: '货物清单',
                     permiss: '2',
                 },
                 component: () => import(/* webpackChunkName: "table" */ '../views/table.vue'),
+            },
+            {
+                path: '/goods',
+                name: 'goods',
+                meta: {
+                    title: '商品列表',
+                    permiss: '2',
+                },
+                component: () => import(/* webpackChunkName: "goods" */ '../views/goods.vue'),
             },
             {
                 path: '/charts',
@@ -154,14 +163,33 @@ const routes: RouteRecordRaw[] = [
                     permiss: '2',
                 },
                 component: () => import(/* webpackChunkName: "detail" */ '../views/detail.vue'),
-            },  {
-                path: '/detail2',
-                name: 'detail2',
+            },  
+            {
+                path: '/stockDetail',
+                name: 'stockDetail',
+                meta: {
+                    title: '货物详情',
+                    permiss: '2',
+                },
+                component: () => import(/* webpackChunkName: "stockDetail" */ '../views/stockDetail.vue'),
+            },  
+            {
+                path: '/inwarehouse',
+                name: 'inwarehouse',
                 meta: {
                     title: '仓储入库',
                     permiss: '2',
                 },
-                component: () => import(/* webpackChunkName: "detail" */ '../views/detail2.vue'),
+                component: () => import(/* webpackChunkName: "inwarehouse" */ '../views/inwarehouse.vue'),
+            },
+            {
+                path: '/outwarehouse',
+                name: 'outwarehouse',
+                meta: {
+                    title: '仓储出库',
+                    permiss: '2',
+                },
+                component: () => import(/* webpackChunkName: "outwarehouse" */ '../views/outwarehouse.vue'),
             },
             {
                 path: '/loans',
@@ -217,16 +245,6 @@ const routes: RouteRecordRaw[] = [
 
                 },
                 component: () => import('../views/express.vue'),
-            },
-            {
-                path: '/expressDetail',
-                name: 'expressDetail',
-                meta: {
-                    title: '物流详情',
-                    permiss: '16',
-
-                },
-                component: () => import('../views/expressDetail.vue'),
             },
             {
                 path: '/expressDetail',

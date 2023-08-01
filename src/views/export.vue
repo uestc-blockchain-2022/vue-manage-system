@@ -2,7 +2,8 @@
     <div>
         <div class="container">
             <div class="handle-box">
-                <el-button type="primary" @click="exportXlsx">导出Excel</el-button>
+                <el-button type="primary" @click="exportXlsx">导出</el-button>
+                 <el-button type="primary" >新增</el-button>
             </div>
             <el-table :data="tableData" border class="table" header-cell-class-name="table-header">
                 <el-table-column prop="id" label="ID" width="55" align="center"></el-table-column>
