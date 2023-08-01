@@ -117,7 +117,7 @@
 </template>
 
 <script setup lang="ts" name="dashboard">
-import Schart from 'vue-schart';
+import   Schart from './vue-schart.vue';
 import { reactive } from 'vue';
 import imgurl from '../assets/img/img.jpg';
 

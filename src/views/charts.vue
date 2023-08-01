@@ -24,7 +24,7 @@
 </template>
 
 <script setup lang="ts" name="basecharts">
-import Schart from 'vue-schart';
+import   Schart from './vue-schart.vue';
 
 const options1 = {
 	type: 'bar',
