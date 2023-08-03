@@ -85,6 +85,7 @@ import { ElMessage, ElMessageBox } from 'element-plus';
 import { Delete, Edit, Search, Plus, View } from '@element-plus/icons-vue';
 import { fetchData } from '../api/index';
 import router from '../router/index'
+import { useLoanStore } from '../store/loanInfo';
 interface TableItem {
 	id: number;
 	borrower: string;
@@ -103,29 +104,21 @@ const query = reactive({
 	pageSize: 10
 });
 const tableData = ref<TableItem[]>([]);
+const loanData = useLoanStore();
 const pageTotal = ref(0);
 //日期查询
 const startDateValue = ref('');
 const closeDateValue = ref('');
 // 获取表格数据
-const getData = (url : string) => {
-	fetchData(url).then(res => {
-		tableData.value = res.data.list;
-		pageTotal.value = res.data.pageTotal || 50;
-	});
-	console.log(tableData.value)
-};
-getData('/loanInfoTable.json');
+tableData.value = loanData.getAll;
 
 // 查询操作
 const handleSearch = () => {
 	query.pageIndex = 1;
-	getData('/loanInfoTable.json');
 };
 // 分页导航
 const handlePageChange = (val: number) => {
 	query.pageIndex = val;
-	getData('/loanInfoTable.json');
 };
 
 // 删除操作

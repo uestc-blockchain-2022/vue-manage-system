@@ -72,6 +72,7 @@ import { ElMessage, ElMessageBox } from 'element-plus';
 import { Delete, Edit, Search, Plus, View } from '@element-plus/icons-vue';
 import { fetchData } from '../api/index';
 import router from '../router/index'
+import { useExpressStore } from '../store/expressInfo'
 interface TableItem {
 	id: number;
 	expressId: string;
@@ -92,28 +93,21 @@ const query = reactive({
 });
 const tableData = ref<TableItem[]>([]);
 const pageTotal = ref(0);
+
+const expressData = useExpressStore();
 //日期查询
 const startDateValue = ref('');
 const closeDateValue = ref('');
-// 获取表格数据
-const getData = (url : string) => {
-	fetchData(url).then(res => {
-		tableData.value = res.data.list;
-		pageTotal.value = res.data.pageTotal || 50;
-	});
-	console.log(tableData.value)
-};
-getData('/expressInfo.json');
+
+tableData.value = expressData.GetAll;
 
 // 查询操作
 const handleSearch = () => {
 	query.pageIndex = 1;
-	getData('/expressInfo.json');
 };
 // 分页导航
 const handlePageChange = (val: number) => {
 	query.pageIndex = val;
-	getData('/expressInfo.json');
 };
 
 // 删除操作

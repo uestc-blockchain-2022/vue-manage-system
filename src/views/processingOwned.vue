@@ -67,8 +67,53 @@
 			</template>
 		</el-dialog>
 
-		<el-dialog title="填写物流信息" v-model="dialogVisible">
-			<el-form></el-form>
+		<el-dialog title="填写物流信息" v-model="dialogVisible" :before-close="handleClose">
+			<el-form :model="expressForm" :rules="rules" ref="ruleFormRef">
+				<el-form-item label="快递单号" prop="expressId">
+					<el-input v-model="expressForm.expressId" placeholder="请输入快递单号"></el-input>
+				</el-form-item>
+				<el-form-item label="发货人姓名" prop="sender">
+					<el-input v-model="expressForm.sender" placeholder="请输入发货人姓名"></el-input>
+				</el-form-item>
+				<el-form-item label="收货人姓名" prop="receiver">
+					<el-input v-model="expressForm.receiver" placeholder="请输入收货人姓名"></el-input>
+				</el-form-item>
+				<el-form-item label="提交时间" required>
+					<el-col :span="11">
+						<el-form-item prop="submitDate">
+							<el-date-picker
+							v-model="expressForm.submitDate"
+							value-format="YYYY-MM-DD"
+							type="date"
+							placeholder="选择日期"
+							style="width: 100%;"
+							/>
+						</el-form-item>
+					</el-col>
+					<el-col :span="2" class="text-center">
+						<span class="text-gray-500">-</span>
+					</el-col>
+					<el-col :span="11">
+						<el-form-item prop="submitTime">
+							<el-time-select
+						v-model="expressForm.submitTime"
+						placeholder="选择时间"
+						style="width: 100%;"
+						/>
+						</el-form-item>
+					</el-col>
+				</el-form-item>
+				<el-form-item label="物流公司" prop="company">
+					<el-input v-model="expressForm.company" placeholder="请输入物流公司名称"></el-input>
+				</el-form-item>
+				<el-form-item label="货品重量" prop="weight">
+					<el-input v-model="expressForm.weight" placeholder="请输入货物重量，如：10kg"></el-input>
+				</el-form-item>
+				<el-form-item>
+					<el-button type="primary" @click="submitForm(ruleFormRef)">Create</el-button>
+      				<el-button>Cancel</el-button>
+				</el-form-item>
+			</el-form>
 		</el-dialog>
 	</div>
 </template>
@@ -80,6 +125,10 @@ import { Delete, Edit, Search, Plus, View } from '@element-plus/icons-vue';
 import { fetchData , putData } from '../api/index';
 import { useProcessingStore } from '../store/processingInfo';
 import router from '../router/index'
+import type { FormInstance, FormRules } from 'element-plus'
+import { ExpressForm } from '../store/expressInfo'
+import { useExpressStore } from '../store/expressInfo'
+
 interface TableItem {
 	id: number;
 	processingId: string;
@@ -100,8 +149,46 @@ const query = reactive({
 	pageSize: 10
 });
 
+const expressForm = reactive<ExpressForm>({
+	expressId: '',
+	sender:'',
+	receiver:'',
+	submitDate:'',
+	submitTime:'',
+	company:'',
+	weight:''
+});
+
+const ruleFormRef = ref<FormInstance>();
+
+const rules = reactive<FormRules<ExpressForm>>({
+	expressId:[
+		{ required: true,message: '快递单号不能为空！',trigger:'blur' }
+	],
+	sender:[
+		{ required: true,message: '发货人不能为空！',trigger:'blur' }
+	],
+	receiver:[
+		{ required: true,message: '快递单号不能为空！',trigger:'blur' }
+	],
+	submitDate:[
+		{ required: true,message: '提交日期不能为空！',trigger:'change'}
+	],
+	submitTime:[
+		{ required: true,message: '提交时间不能为空！',trigger:'change'}
+	],
+	company:[
+		{ required: true,message: '公司名称不能为空！',trigger:'blur' }
+	],
+	weight:[
+		{ required: true,message:'重量不能为空',trigger:'blur' }
+	]
+});
+
+const expressData = useExpressStore();
 // const tableData = ref<TableItem[]>([]);
-let dialogVisible = false;
+let rowId = -1;
+const dialogVisible = ref(false);
 const username = localStorage.getItem('ms_username');
 const processingData = useProcessingStore();
 let tableData = ref<TableItem[]>([]);
@@ -138,12 +225,9 @@ const handleEdit = (index: number, row: any) => {
 	//form.name = row.name;
 	//form.address = row.address;
 	//editVisible.value = true;
-	getExpressInfoDialog();
-    processingData.setStateById(row.id,'已完成',username as string);
-	tableData.value = processingData.getAll;
-	tableData.value = tableData.value.filter((item)=>{
-		return item.secondParty == localStorage.getItem('ms_username');
-	})
+	dialogVisible.value = true;
+	rowId = row.id;
+
 };
 const saveEdit = () => {
 	//editVisible.value = false;
@@ -152,9 +236,34 @@ const saveEdit = () => {
 	//tableData.value[idx].address = form.address;
 };
 
+const submitForm = async (formEl: FormInstance | undefined) => {
+  if (!formEl) return;
+  await formEl.validate((valid, fields) => {
+    if (valid) {
+      console.log('submit!');
+	  expressData.AddRecord(expressForm);
+	  ElMessage({
+		message:"物流信息添加成功",
+		type:'success'
+	  });
+	  processingData.setStateById(rowId,'已完成',username as string);
+	  tableData.value = processingData.getAll;
+	  tableData.value = tableData.value.filter((item)=>{
+		return item.secondParty == localStorage.getItem('ms_username');
+	})
+    } 
+	else {
+      console.log('error submit!', fields)
+	  ElMessage({
+		message:'请按要求正确填写表单后提交',
+		type:'warning'
+	  })
+    }
+  })
+}
 
-function getExpressInfoDialog() {
-	dialogVisible = true;
+function handleClose() {
+	dialogVisible.value = false;
 }
 </script>
 
@@ -185,5 +294,8 @@ function getExpressInfoDialog() {
 	margin: auto;
 	width: 40px;
 	height: 40px;
+}
+.text-center {
+	text-align: center;
 }
 </style>

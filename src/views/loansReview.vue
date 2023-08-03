@@ -30,7 +30,7 @@
 				</el-table-column>
 				<el-table-column label="操作" width="220" align="center">
 					<template #default="scope">
-						<el-button text :icon="Edit" @click="handleEdit(scope.$index, scope.row)" v-permiss="15">
+						<el-button text :icon="Edit" @click="handlePass(scope.row.id)" v-permiss="15">
 							通过
 						</el-button>
 						<el-button text :icon="Delete" class="red" @click="handleDelete(scope.$index)" v-permiss="16">
@@ -76,7 +76,7 @@ import { ref, reactive } from 'vue';
 import { ElMessage, ElMessageBox } from 'element-plus';
 import { Delete, Edit, Search, Plus } from '@element-plus/icons-vue';
 import { fetchData } from '../api/index';
-
+import { useLoanStore } from '../store/loanInfo';
 interface TableItem {
 	id: number;
 	borrower: string;
@@ -100,28 +100,34 @@ const startDateValue = ref('');
 const closeDateValue = ref('');
 
 const tableData = ref<TableItem[]>([]);
+const loanData = useLoanStore()
 const pageTotal = ref(0);
 // 获取表格数据
-const getData = (url : string) => {
-	fetchData(url).then(res => {
-		tableData.value = res.data.list;
-		pageTotal.value = res.data.pageTotal || 50;
-	});
-	console.log(tableData.value)
-};
-getData('/loansAuditTable.json');
+tableData.value = loanData.getAll.filter((item)=>{
+	return item.state == '待审核'
+})
 
 // 查询操作
 const handleSearch = () => {
 	query.pageIndex = 1;
-	getData('/loansAuditTable.json');
 };
 // 分页导航
 const handlePageChange = (val: number) => {
 	query.pageIndex = val;
-	getData('/loansAuditTable.json');
 };
-
+const handlePass = (id:number) => {
+	ElMessageBox.confirm('确定要通过吗？', '提示', {
+		type: 'warning'
+	})
+		.then(() => {
+			ElMessage.success('审核已通过');
+			loanData.setStateById(id,'已通过');
+			tableData.value = loanData.getAll.filter((item)=>{
+				return item.state == '待审核'
+			});
+		})
+		.catch(() => {});
+}
 // 删除操作
 const handleDelete = (index: number) => {
 	// 二次确认删除
