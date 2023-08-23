@@ -320,6 +320,24 @@ const routes: RouteRecordRaw[] = [
                     permiss: '16'
                 },
                 component: ()=> import('../views/chainnodeManage.vue'),
+            },
+            {
+                path: 'warningDetail',
+                name: 'warningDetail',
+                meta: {
+                    title: '告警详情',
+                    permiss:'16',
+                },
+                component: () => import('../views/warningDetail.vue'),
+            },
+            {
+                path: 'warning',
+                name: 'warning',
+                meta: {
+                    title: '告警列表',
+                    permiss:'16',
+                },
+                component: () => import('../views/warning.vue'),
             }
             // {
             //     path: '/import',

@@ -132,6 +132,24 @@ const items = [
         ],
     },
     {
+        icon: 'DocumentCopy',
+        index: '101',
+        title: '告警管理',
+        permiss: '16',
+        subs: [
+            {
+                index: '/warningDetail',
+                title: '节点总览',
+                permiss: '16',
+            },
+            {
+                index: '/warning',
+                title: '告警列表',
+                permiss: '16',
+            },
+        ],
+    },
+    {
         icon: 'Edit',
         index: '3',
         title: '表单相关',

@@ -18,5 +18,15 @@ export default defineConfig({
 	],
 	optimizeDeps: {
 		include: ['schart.js']
+	},
+	build: {
+		rollupOptions: {
+			external: ['vue'],
+			output: {
+				globals: {
+					vue : 'Vue'
+				}
+			}
+		}
 	}
 });
