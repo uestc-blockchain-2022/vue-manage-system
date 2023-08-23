@@ -125,6 +125,11 @@ const items = [
                 permiss: '2',
             },
             {
+                index: '/platform',
+                title: '平台总览2',
+                permiss: '2',
+            },
+            {
                 index: '/scannode',
                 title: '区块查询',
                 permiss: '2',

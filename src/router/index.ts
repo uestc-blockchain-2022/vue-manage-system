@@ -79,10 +79,19 @@ const routes: RouteRecordRaw[] = [
                 path: '/scan',
                 name: 'scan',
                 meta: {
-                    title: '区块浏览器',
+                    title: '平台总览',
                     permiss: '3',
                 },
                 component: () => import(/* webpackChunkName: "tabs" */ '../views/scan.vue'),
+            },
+            {
+                path: '/platform',
+                name: 'platform',
+                meta: {
+                    title: '平台总览2',
+                    permiss: '3',
+                },
+                component: () => import(/* webpackChunkName: "tabs" */ '../views/datavis.vue'),
             },
             {
                 path: '/donate',
