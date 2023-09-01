@@ -1,24 +1,63 @@
 <template>
 	<div class="container">
-		<div class="mgb20">
-			<span class="label">角色：</span>
-			<el-select v-model="role" @change="handleChange">
-				<el-option label="超级管理员" value="admin"></el-option>
-				<el-option label="系统管理员" value="secondAdmin"></el-option>
-				<el-option label="普通用户" value="user"></el-option>
-			</el-select>
+		<span>
+			用户账号:
+		</span>
+		<span><el-input></el-input></span>
+		<span class="right-button"><el-button type="primary">查询</el-button></span>
+	</div>
+	<div class="parent">
+		<div class="permiss-panel">
+			<el-card class="box-card">
+				<template #header>
+				<div class="card-header">
+					<span>当前登录用户账号: {{username}}</span>
+					<span>当前操作账号: xxxxxx</span>
+					<el-button class="button" type="primary">提交</el-button>
+				</div>
+				</template>
+				<div class="card-content">
+					<div class="card-half">
+						<p class="card-hint">用户拥有权限组</p>
+						<div class="content-op-area">
+							<el-row style="margin-top: 30px;">
+								<el-button v-if="super_permiss" @click="super_permiss=!super_permiss" style="margin: auto; color:firebrick;" :icon="UserFilled">超级管理员</el-button>
+							</el-row>
+							<el-row style="margin-top: 30px;">
+								<el-button v-if="system_permiss" @click="system_permiss=!system_permiss" style="margin: auto; color: goldenrod;" :icon="UserFilled">系统管理员</el-button>
+							</el-row>
+							<el-row style="margin-top: 30px;">
+								<el-button v-if="normal_permiss" @click="normal_permiss=!normal_permiss" style="margin: auto; color: darkgreen;" :icon="UserFilled">普通用户</el-button>
+							</el-row>
+						</div>
+					</div>
+					<div class="card-mid">
+						<el-row><el-icon :size="80"><DArrowRight /></el-icon></el-row>
+						<el-row><el-icon :size="80"><DArrowLeft /></el-icon></el-row>
+					</div>
+					<div class="card-half">
+						<p class="card-hint">全部权限组</p>
+						<div class="content-op-area">
+							<el-row style="margin-top: 30px;">
+								<el-button @click="super_permiss=true" style="margin: auto; color:firebrick;" :icon="UserFilled">超级管理员</el-button>
+							</el-row>
+							<el-row style="margin-top: 30px;">
+								<el-button @click="system_permiss=true" style="margin: auto; color: goldenrod;" :icon="UserFilled">系统管理员</el-button>
+							</el-row>
+							<el-row style="margin-top: 30px;">
+								<el-button @click="normal_permiss=true" style="margin: auto; color: darkgreen;" :icon="UserFilled">普通用户</el-button>
+							</el-row>
+						</div>
+					</div>
+				</div>
+			</el-card>
 		</div>
-		<div class="mgb20 tree-wrapper">
-			<el-tree
-				ref="tree"
-				:data="data"
-				node-key="id"
-				default-expand-all
-				show-checkbox
-				:default-checked-keys="checkedKeys"
-			/>
+		<div class="right-bar">
+			<el-row style="color: red; padding-bottom: 40px;">*授权说明</el-row>
+			<el-row style="padding-bottom: 30px;">超级管理员：拥有所有权限，可以管理所有模块</el-row>
+			<el-row style="padding-bottom: 30px;">系统管理员：不具有平台管理和告警管理模块权限，拥有其余权限</el-row>
+			<el-row style="padding-bottom: 30px;">普通用户：只具有各个数据平台的非管理权限</el-row>
 		</div>
-		<el-button type="primary" @click="onSubmit">保存权限</el-button>
 	</div>
 </template>
 
@@ -26,8 +65,14 @@
 import { ref } from 'vue';
 import { ElOption, ElTree } from 'element-plus';
 import { usePermissStore } from '../store/permiss';
+import { UserFilled } from '@element-plus/icons-vue';
 
 const role = ref<string>('admin');
+
+let super_permiss = ref(true);
+let system_permiss = ref(true);
+let normal_permiss = ref(true);
+const username = localStorage.getItem("ms_username");
 
 interface Tree {
 	id: string;
@@ -35,122 +80,7 @@ interface Tree {
 	children?: Tree[];
 }
 
-const data: Tree[] = [
-	{
-		id: '1',
-		label: '交易平台',
-		children: [
-			{
-				id:'10',
-				label:'交易列表'
-			},
-			{
-				id:'11',
-				label:'交易详情'
-			}
-		]
-	},
-	{
-		id: '2',
-		label: '贷款平台',
-		children: [
-			{
-				id: '12',
-				label: '贷款列表'
-			},
-			{
-				id: '13',
-				label: '贷款详情'
-			}
-		]
-	},
-	{
-		id: '3',
-		label: '加工平台',
-		children: [
-			{
-				id: '14',
-				label: '加工列表',
-			},
-			{
-				id:'15',
-				label:'加工详情'
-			}
-		]
-	},
-	{
-		id: '4',
-		label: '仓储平台',
-	},
-	{
-		id: '5',
-		label: '物流信息'
-	},
-	{
-		id: '6',
-		label: '保险平台',
-		children: [
-			{
-				id:'16',
-				label:'保险单详情'
-			},
-			{
-				id:'17',
-				label:'保险单列表'
-			}
-		]
-	},
-	{
-		id: '7',
-		label: '平台管理',
-		children: [
-			{
-				id:'18',
-				label:'合约管理'
-			},
-			{
-				id:'19',
-				label:'节点管理'
-			},
-			{
-				id:'20',
-				label:'平台总览'
-			},
-			{
-				id:'21',
-				label:'区块查询'
-			}
-		]
-	},
-	{
-		id: '8',
-		label: '系统管理',
-		children: [
-			{
-				id:'22',
-				label:'账户管理',
-			},
-			{
-				id:'23',
-				label:'权限管理'
-			}
-		]
-	},
-	{
-		id:'9',
-		label:'运维管理',
-		children: [
-			{
-				id:'24',
-				label:'告警列表'
-			},
-			{
-				id:'25',
-				label:'威胁溯源'
-			}
-		]
-	}
-];
+
 
 const permiss = usePermissStore();
 
@@ -172,6 +102,10 @@ const onSubmit = () => {
 const handleChange = (val: string[]) => {
 	tree.value!.setCheckedKeys(permiss.defaultList[role.value]);
 };
+
+const handlePermiss = () => {
+	console.log("abcnd")
+}
 </script>
 
 <style scoped>
@@ -180,5 +114,72 @@ const handleChange = (val: string[]) => {
 }
 .label {
 	font-size: 14px;
+}
+
+.el-input {
+	max-width: 300px;
+}
+.parent {
+	display: flex;
+	height:fit-content;
+}
+
+.permiss-panel {
+	flex: 65%;
+	padding: 30px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+.right-bar {
+	flex: 35%;
+	padding: 30px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.text {
+  font-size: 14px;
+}
+
+.item {
+  margin-bottom: 18px;
+}
+
+.box-card {
+  width: 100%;
+}
+
+.right-button {
+}
+.card-content {
+	display: flex;
+}
+
+.card-half {
+	flex: 44%;
+}
+
+.card-hint {
+  text-align: center; /* 居中文本 */
+  color: gray; /* 深灰色颜色 */
+}
+
+.content-op-area {
+	padding: 60px;
+    background: lightgray;
+    border-radius: 5px;
+}
+
+.card-mid {
+	position: relative;
+	top: 80px;
 }
 </style>

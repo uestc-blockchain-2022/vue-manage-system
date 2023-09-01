@@ -129,10 +129,20 @@ const items = [
                 title: '区块查询',
                 permiss: '2',
             },
+            {
+                index: '/chainnodeManage',
+                title: '节点管理',
+                permiss: '16'
+            },
+            {
+                index: '/contractManage',
+                title: '合约管理',
+                permiss: '16'
+            }
         ],
     },
     {
-        icon: 'DocumentCopy',
+        icon: 'Warning',
         index: '101',
         title: '告警管理',
         permiss: '16',
@@ -146,7 +156,7 @@ const items = [
                 index: '/warning',
                 title: '告警列表',
                 permiss: '16',
-            },
+            },         
         ],
     },
     {
@@ -244,7 +254,7 @@ const items = [
     //     permiss: '14',
     // },
     {
-        icon: 'CoffeeCup',
+        icon: 'Document',
         index: '5',
         title: '贷款管理',
         permiss: '15',
@@ -262,13 +272,13 @@ const items = [
         ]
     },
     {
-        icon: 'CoffeeCup',
+        icon: 'Coin',
         index: '/insurance',
         title: '保险管理',
         permiss: '16', 
     },
     {
-        icon: 'CoffeeCup',
+        icon: 'Van',
         index: '/express',
         title: '物流管理',
         permiss: '16',
