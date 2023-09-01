@@ -9,6 +9,7 @@
 
     <script type="text/javascript" src="js/rem.js"></script>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/src/blockchain/assets/style/blockchain.css">
     <title>西部物流服务中心-首页</title>
 </head>
 
@@ -21,7 +22,199 @@
                     <p>6,789</p>
                 </div>
             </div>
-            <div class="left-center">
+
+            <div class="dashboard">
+                <div class="content-outer-wrapper">
+                    <div class="content-inner-wrapper">
+            <div class="main-left" style="font-size: 30px;box-sizing: border-box;"><!-- 区块列表 -->
+                <div class="block-list-wrapper list-wrapper">
+                  <div class="outline text-title">区块 <span style="font-weight: 100;">列表</span></div>
+                  <!-- <img class="bg-line bg-line-transparent" src="/src/blockchain/assets/images/block-line@2x.png" alt="block-line"> -->
+                  <div class="swiper swiper-block swiper-initialized swiper-vertical swiper-pointer-events x-swiper swiper-block">
+                    <div class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;">
+                      <div class="swiper-slide swiper-slide-active x-swiper-slide" data-index="index">
+                        <div class="block-title"><img class="icon-block" src="/src/blockchain/assets/images/icon-block-item@2x.png"
+                            alt="block"><span class="text-normal">Block 16</span><img class="icon-data"
+                            src="/src/blockchain/assets/images/icon-data@2x.png" alt="icon"></div>
+                        <div class="block-content">
+                          <div class="channel-name text-detail"> Block : <span style="font-weight: 100;">54292144</span></div>
+                          <div class="datahash text-detail">Data hash: <span style="font-weight: 100;">524bd80d89a</span></div>
+                          <div class="number-of-tx text-detail">Number of Tx: <span style="font-weight: 100;">1</span></div>
+                        </div>
+                      </div>
+                      <div class="swiper-slide x-swiper-slide" data-index="index">
+                        <div class="block-title"><img class="icon-block" src="/src/blockchain/assets/images/icon-block-item@2x.png"
+                            alt="block"><span class="text-normal">Block 15</span><img class="icon-data"
+                            src="/src/blockchain/assets/images/icon-data@2x.png" alt="icon"></div>
+                        <div class="block-content">
+                          <div class="channel-name text-detail"> Block : <span style="font-weight: 100;">54292145</span></div>
+                          <div class="datahash text-detail">Data hash: <span style="font-weight: 100;">af65skdnsks</span></div>
+                          <div class="number-of-tx text-detail">Number of Tx: <span style="font-weight: 100;">1</span></div>
+                        </div>
+                      </div>
+                      <div class="swiper-slide x-swiper-slide" data-index="index">
+                        <div class="block-title"><img class="icon-block" src="/src/blockchain/assets/images/icon-block-item@2x.png"
+                            alt="block"><span class="text-normal">Block 14</span><img class="icon-data"
+                            src="/src/blockchain/assets/images/icon-data@2x.png" alt="icon"></div>
+                        <div class="block-content">
+                          <div class="channel-name text-detail"> Channel Name:<span style="font-weight: 100;">testcha</span></div>
+                          <div class="datahash text-detail">Datahash:<span style="font-weight: 100;">af65skdnsks</span></div>
+                          <div class="number-of-tx text-detail">Number of Tx:<span style="font-weight: 100;">1</span></div>
+                        </div>
+                      </div>
+                      <div class="swiper-slide x-swiper-slide" data-index="index">
+                        <div class="block-title"><img class="icon-block" src="/src/blockchain/assets/images/icon-block-item@2x.png"
+                            alt="block"><span class="text-normal">Block 13</span><img class="icon-data"
+                            src="/src/blockchain/assets/images/icon-data@2x.png" alt="icon"></div>
+                        <div class="block-content">
+                          <div class="channel-name text-detail"> Channel Name:<span style="font-weight: 100;">testcha</span></div>
+                          <div class="datahash text-detail">Datahash:<span style="font-weight: 100;">af65skdnsks</span></div>
+                          <div class="number-of-tx text-detail">Number of Tx:<span style="font-weight: 100;">1</span></div>
+                          <div class="date text-detail text-red">3days ago</div>
+                        </div>
+                      </div>
+                      
+                    </div><!---->
+                    <div class="swiper-scrollbar"></div><!---->
+                  </div>
+                </div><!-- 交易列表 -->
+                <div class="transaction-list-wrapper list-wrapper">
+                  <div class="outline text-title">交易 <span style="font-weight: 100;">列表</span></div>
+                  <!-- <img src="/src/blockchain/assets/images/transaction-line@2x.png" alt="block-line" class="bg-line"> -->
+                  <div
+                    class="swiper swiper-transaction swiper-initialized swiper-vertical swiper-pointer-events x-swiper swiper-transaction">
+                    <div class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px);">
+                      <div class="swiper-slide x-swiper-slide swiper-slide-active">
+                        <div class="block-title"><img class="icon-block"
+                            src="/src/blockchain/assets/images/icon-transaction-item@2x.png" alt="block"><span
+                            class="text-normal">Block 16</span><img class="icon-data"
+                            src="/src/blockchain/assets/images/icon-data@2x.png" alt="icon"></div>
+                        <div class="block-content">
+                          <div class="channel-name text-detail"> Account :<span style="font-weight: 100;">CV4yiLkRg89zLqwRgi</span></div>
+                          <div class="datahash text-detail">Data hash:<span style="font-weight: 100;">4yiLkRg89</span></div>
+                          <div class="number-of-tx text-detail">Reward :<span style="font-weight: 100;">1 TRX</span></div>
+                        </div>
+                      </div>
+                      <div class="swiper-slide x-swiper-slide swiper-slide-next">
+                        <div class="block-title"><img class="icon-block"
+                            src="/src/blockchain/assets/images/icon-transaction-item@2x.png" alt="block"><span
+                            class="text-normal">Block 15</span><img class="icon-data"
+                            src="/src/blockchain/assets/images/icon-data@2x.png" alt="icon"></div>
+                        <div class="block-content">
+                          <div class="channel-name text-detail"> Account :<span style="font-weight: 100;">TWGZbjofbTLY3UCjCV4</span></div>
+                          <div class="datahash text-detail">Data hash:<span style="font-weight: 100;">bjofbTLY3</span></div>
+                          <div class="number-of-tx text-detail">Reward :<span style="font-weight: 100;">1 TRX</span></div>
+                        </div>
+                      </div>
+                      <div class="swiper-slide x-swiper-slide">
+                        <div class="block-title"><img class="icon-block"
+                            src="/src/blockchain/assets/images/icon-transaction-item@2x.png" alt="block"><span
+                            class="text-normal">Block 14</span><img class="icon-data"
+                            src="/src/blockchain/assets/images/icon-data@2x.png" alt="icon"></div>
+                        <div class="block-content">
+                          <div class="channel-name text-detail"> Channel Name:<span style="font-weight: 100;">testcha</span></div>
+                          <div class="datahash text-detail">Datahash:<span style="font-weight: 100;">af65skdnsks</span></div>
+                          <div class="number-of-tx text-detail">Number of Tx:<span style="font-weight: 100;">1</span></div>
+                          <div class="date text-detail text-green">3days ago</div>
+                        </div>
+                      </div>
+                      <div class="swiper-slide x-swiper-slide">
+                        <div class="block-title"><img class="icon-block"
+                            src="/src/blockchain/assets/images/icon-transaction-item@2x.png" alt="block"><span
+                            class="text-normal">Block 13</span><img class="icon-data"
+                            src="/src/blockchain/assets/images/icon-data@2x.png" alt="icon"></div>
+                        <div class="block-content">
+                          <div class="channel-name text-detail"> Channel Name:<span style="font-weight: 100;">testcha</span></div>
+                          <div class="datahash text-detail">Datahash:<span style="font-weight: 100;">af65skdnsks</span></div>
+                          <div class="number-of-tx text-detail">Number of Tx:<span style="font-weight: 100;">1</span></div>
+                          <div class="date text-detail text-green">3days ago</div>
+                        </div>
+                      </div>
+                      <div class="swiper-slide x-swiper-slide">
+                        <div class="block-title"><img class="icon-block"
+                            src="/src/blockchain/assets/images/icon-transaction-item@2x.png" alt="block"><span
+                            class="text-normal">Block 12</span><img class="icon-data"
+                            src="/src/blockchain/assets/images/icon-data@2x.png" alt="icon"></div>
+                        <div class="block-content">
+                          <div class="channel-name text-detail"> Channel Name:<span style="font-weight: 100;">testcha</span></div>
+                          <div class="datahash text-detail">Datahash:<span style="font-weight: 100;">af65skdnsks</span></div>
+                          <div class="number-of-tx text-detail">Number of Tx:<span style="font-weight: 100;">1</span></div>
+                          <div class="date text-detail text-green">3days ago</div>
+                        </div>
+                      </div>
+                      <div class="swiper-slide x-swiper-slide">
+                        <div class="block-title"><img class="icon-block"
+                            src="/src/blockchain/assets/images/icon-transaction-item@2x.png" alt="block"><span
+                            class="text-normal">Block 11</span><img class="icon-data"
+                            src="/src/blockchain/assets/images/icon-data@2x.png" alt="icon"></div>
+                        <div class="block-content">
+                          <div class="channel-name text-detail"> Channel Name:<span style="font-weight: 100;">testcha</span></div>
+                          <div class="datahash text-detail">Datahash:<span style="font-weight: 100;">af65skdnsks</span></div>
+                          <div class="number-of-tx text-detail">Number of Tx:<span style="font-weight: 100;">1</span></div>
+                          <div class="date text-detail text-green">3days ago</div>
+                        </div>
+                      </div>
+                     
+                     
+                     
+                      <div class="swiper-slide x-swiper-slide">
+                        <div class="block-title"><img class="icon-block"
+                            src="/src/blockchain/assets/images/icon-transaction-item@2x.png" alt="block"><span
+                            class="text-normal">Block 4</span><img class="icon-data"
+                            src="/src/blockchain/assets/images/icon-data@2x.png" alt="icon"></div>
+                        <div class="block-content">
+                          <div class="channel-name text-detail"> Channel Name:<span style="font-weight: 100;">testcha</span></div>
+                          <div class="datahash text-detail">Datahash:<span style="font-weight: 100;">af65skdnsks</span></div>
+                          <div class="number-of-tx text-detail">Number of Tx:<span style="font-weight: 100;">1</span></div>
+                          <div class="date text-detail text-green">3days ago</div>
+                        </div>
+                      </div>
+                      <div class="swiper-slide x-swiper-slide">
+                        <div class="block-title"><img class="icon-block"
+                            src="/src/blockchain/assets/images/icon-transaction-item@2x.png" alt="block"><span
+                            class="text-normal">Block 3</span><img class="icon-data"
+                            src="/src/blockchain/assets/images/icon-data@2x.png" alt="icon"></div>
+                        <div class="block-content">
+                          <div class="channel-name text-detail"> Channel Name:<span style="font-weight: 100;">testcha</span></div>
+                          <div class="datahash text-detail">Datahash:<span style="font-weight: 100;">af65skdnsks</span></div>
+                          <div class="number-of-tx text-detail">Number of Tx:<span style="font-weight: 100;">1</span></div>
+                          <div class="date text-detail text-green">3days ago</div>
+                        </div>
+                      </div>
+                      <div class="swiper-slide x-swiper-slide">
+                        <div class="block-title"><img class="icon-block"
+                            src="/src/blockchain/assets/images/icon-transaction-item@2x.png" alt="block"><span
+                            class="text-normal">Block 2</span><img class="icon-data"
+                            src="/src/blockchain/assets/images/icon-data@2x.png" alt="icon"></div>
+                        <div class="block-content">
+                          <div class="channel-name text-detail"> Channel Name:<span style="font-weight: 100;">testcha</span></div>
+                          <div class="datahash text-detail">Datahash:<span style="font-weight: 100;">af65skdnsks</span></div>
+                          <div class="number-of-tx text-detail">Number of Tx:<span style="font-weight: 100;">1</span></div>
+                          <div class="date text-detail text-green">3days ago</div>
+                        </div>
+                      </div>
+                      <div class="swiper-slide x-swiper-slide">
+                        <div class="block-title"><img class="icon-block"
+                            src="/src/blockchain/assets/images/icon-transaction-item@2x.png" alt="block"><span
+                            class="text-normal">Block 1</span><img class="icon-data"
+                            src="/src/blockchain/assets/images/icon-data@2x.png" alt="icon"></div>
+                        <div class="block-content">
+                          <div class="channel-name text-detail"> Channel Name:<span style="font-weight: 100;">testcha</span></div>
+                          <div class="datahash text-detail">Datahash:<span style="font-weight: 100;">af65skdnsks</span></div>
+                          <div class="number-of-tx text-detail">Number of Tx:<span style="font-weight: 100;">1</span></div>
+                          <div class="date text-detail text-green">3days ago</div>
+                        </div>
+                      </div>
+                    </div><!---->
+                    <div class="swiper-scrollbar"></div><!---->
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+            </div>
+
+            <div class="left-center" style="display: none;">
                 <div class="title-box">
                     <h6>商品入库量占比</h6>
                 </div>
@@ -34,7 +227,7 @@
                     </div>
                 </div>
             </div>
-            <div class="left-bottom select"  >
+            <div class="left-bottom select"  style="display: none;"  >
                 <div class="title-box">
                     <h6>广东省交易单数据</h6>
                     <img class="line-img" src="images/line-blue.png" alt="">
@@ -199,7 +392,7 @@
                     <img class="line-img" src="images/line-blue.png" alt="">
                     <button data-state=1 id="tabBtn"><img src="images/chart_icon.png" alt=""><span>图表</span></button>
                 </div>
-                <p class="unit">单位：件</p>
+                <p class="unit">单位:件</p>
                 <div class="chart-box">
                     <div id="chart3" style="width:100%;height:100%;"></div>
                 </div>
@@ -295,340 +488,16 @@
                 </div>
                 <div class="data-box">
                     <div class="settings-box">
-                        <p><img src="images/teacher_icon.png" alt="">用户访问量：<span id="name_a">1234</span><span id="date_a"></span></p>
-                        <p><img src="images/people_iocn.png" alt="">系统消息：<span id="lea_a">321</span></p>
-                        <p><img src="images/data_icon.png" alt="">商品数量：<span id="lea_a">54263</span></p>
+                        <p><img src="images/teacher_icon.png" alt="">用户访问量:<span id="name_a">1234</span><span id="date_a"></span></p>
+                        <p><img src="images/people_iocn.png" alt="">系统消息:<span id="lea_a">321</span></p>
+                        <p><img src="images/data_icon.png" alt="">商品数量:<span id="lea_a">54263</span></p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="container">
-        <div class="pop-up">
-            <span class="close-pop"></span>
-            <h2 class="title">当前到件量</h2>
-            <div class="pop-data-box">
-                <p>123,456,789</p>
-            </div>
-        </div>
-
-        <div class="pop-up">
-            <span class="close-pop"></span>
-            <h2 class="title">商品入库量占比</h2>
-            <div class="chart-box pie-chart">
-                <div id="pie1"></div>
-                <div>
-                    <div class="pie-data">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="pop-up">
-            <span class="close-pop"></span>
-            <h2 class="title">广东省寄派件数据 </h2>
-            <div class="filter-con pop-filter" style="display:flex" data-type="3">
-                <div class="select" tabindex="0" hidefocus="true">
-                    <div class="select-div">
-                        派件
-                    </div>
-                    <ul class="select-ul">
-                        <li class="active" data-value="1">派件</li>
-                        <li data-value="2">寄件</li>
-                    </ul>
-                </div>
-                <div class="select" tabindex="0" hidefocus="true">
-                    <div class="select-div">
-                        公司
-                    </div>
-                    <ul class="select-ul company">
-                        <li class="active" data-value="">公司</li>
-                        <li data-value="1">顺丰</li>
-                        <li data-value="2">京东</li>
-                        <li data-value="2">EMS</li>
-                    </ul>
-                </div>
-                <div class="select" tabindex="0" hidefocus="true">
-                    <div class="select-div">
-                        快件类型
-                    </div>
-                    <ul class="select-ul">
-                        <li class="active" data-value="">快件类型</li>
-                        <li data-value="0">文件</li>
-                        <li data-value="1">物品</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="chart-box pop-chart">
-                <div id="gdMaps" class="gd-map"></div>
-            </div>
-        </div>
-
-        <div class="pop-up">
-            <span class="close-pop"></span>
-            <div class="filter-con pop-filters" style="display:flex" data-type="4">
-                <div class="select-pop" tabindex="0" hidefocus="true">
-                    <ul id="barTypes">
-                        <li class="active" data-value="1">派件</li>
-                        <li data-value="2">寄件</li>
-                    </ul>
-                </div>
-                <div class="select" tabindex="0" hidefocus="true">
-                    <div class="select-div">
-                        公司
-                    </div>
-                    <ul class="select-ul company">
-                        <li class="active" data-value="">公司</li>
-                        <li data-value="1">顺丰</li>
-                        <li data-value="2">京东</li>
-                        <li data-value="2">EMS</li>
-                    </ul>
-                </div>
-                <div class="select" tabindex="0" hidefocus="true">
-                    <div class="select-div">
-                        快件类型
-                    </div>
-                    <ul class="select-ul">
-                        <li class="active" data-value="">快件类型</li>
-                        <li data-value="0">文件</li>
-                        <li data-value="1">物品</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="cont-div">
-                <div class="chart-box pop-charts">
-                    <div id="chart4s" style="width:100%;height:95%;"></div>
-                </div>
-            </div>
-            <div class="cont-div">
-                <h2 class="title" id="barTitles">交易数据</h2>
-                <button class="btn-class" data-state=1 id="tabBtns"><img src="images/chart_icon.png" alt=""><span>图表</span></button>
-                <div class="chart-box pop-chart">
-                    <div id="chart3s" style="width:100%;height:90%;"></div>
-                </div>
-                <div class="data-box" style="top:25%;width:8.6rem;display:none;">
-                    <table class="table2">
-                        <tr>
-                            <td>入库单</td>
-                            <td colspan="3" class="table-data dph-data1">0</td>
-                        </tr>
-                        <tr class="bg-color">
-                            <td rowspan="2">加工单</td>
-                            <td rowspan="2" class="table-data dph-data2">0</td>
-                            <td>正常单</td>
-                            <td class="table-data dph-data3">0</td>
-                        </tr>
-                        <tr class="bg-color">
-                            <td>滞留单</td>
-                            <td class="table-data dph-data5">0</td>
-                        </tr>
-                        <tr>
-                            <td rowspan="2">出库单</td>
-                            <td rowspan="2" class="dph-data6">0</td>
-                            <td>派送单</td>
-                            <td class="table-data dph-data7">0</td>
-                        </tr>
-                        <tr>
-                            <td>自提单</td>
-                            <td class="table-data dph-data8">0</td>
-                        </tr>
-                        <tr class="bg-color">
-                            <td>保险单</td>
-                            <td colspan="3" class="table-data dph-data9">0</td>
-                        </tr>
-                        <tr>
-                            <td>交易单</td>
-                            <td colspan="3" class="table-data dph-data4">0</td>
-                        </tr>
-                    </table>
-                    <table class="table2" style="display:none;">
-                        <tr>
-                            <td>入库单</td>
-                            <td colspan="3" class="table-data mail-data1">0</td>
-                        </tr>
-                        <tr class="bg-color">
-                            <td rowspan="2">加工单</td>
-                            <td rowspan="2" class="table-data mail-data2">0</td>
-                            <td>正常单</td>
-                            <td class="table-data mail-data7">0</td>
-                        </tr>
-                        <tr class="bg-color">
-                            <td>滞留单</td>
-                            <td class="table-data mail-data4">0</td>
-                        </tr>
-
-                        <tr>
-                            <td>出库单</td>
-                            <td colspan="3" class="mail-data6">0</td>
-                        </tr>
-                        <tr class="bg-color">
-                            <td>保险单</td>
-                            <td colspan="3" class="mail-data3">0</td>
-                        </tr>
-                        <tr>
-                            <td>交易单</td>
-                            <td colspan="3" class="table-data mail-data5">0</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-            <div class="cont-div">
-                <h2 class="title" id="titles"></h2>
-                <button class="btn-class" id="dateBtns"><img src="images/data_icon.png" alt="">日期</button>
-                <div class="data-box  pop-time">
-                    <div class="time-box" id="timeBoxs">
-                        <div class="time-div">
-                            <input class="time-input" type="text" value="" id="startTimes">
-                            <img src="images/selsct_time.png" alt="">
-                        </div>
-                        <div class="time-div end">
-                            <input class="time-input" type="text" value="" id="endTimes">
-                            <img src="images/selsct_time.png" alt="">
-                        </div>
-                    </div>
-                </div>
-                <div class="pop-data-box" id="totalProfits">
-                    <p></p>
-                </div>
-            </div>
-            <div class="pop-data1" style="display: none;">
-                <div class="city-data">
-                    <div class="city-box">
-                        <p id="titleQs"><span>全网</span>到珠海</p>
-                        <ul class="city-btn" data-city="2">
-                            <li class="active">全网</li>
-                            <li>ABCDE</li>
-                            <li>FGHIJ</li>
-                            <li>KLMNO</li>
-                            <li>PQRST</li>
-                            <li>UVWXYZ</li>
-                        </ul>
-                        <ul class="city-div" id="citys">
-
-                        </ul>
-                    </div>
-                    <ul class="ranking-box">
-                        <li><span></span>
-                            <p>城市</p>
-                            <p>派单</p>
-                        </li>
-                        <!--                        <li><span>1</span><p>上海</p><p>1sss25(万单)</p></li>-->
-                    </ul>
-
-                </div>
-            </div>
-        </div>
-        <div class="pop-up">
-            <span class="close-pop"></span>
-            <h2 class="title">设置</h2>
-            <div class="set-div">
-                <div class="set-box">
-                    <label class="four-f" for="">排班日期</label>
-                    <div class="time-div">
-                        <input class="time-input" type="text" value="" id="times">
-                        <img src="images/selsct_time.png" alt="">
-                    </div>
-                </div>
-                <div class="set-box">
-                    <label for="">值班人</label>
-                    <input type="text" value="">
-                    <button class="plus" id="addT"></button>
-                    <button class="mineus" id="mineusT" style="display:none;"></button>
-                </div>
-                <div class="set-box">
-                    <label for="">负责人</label>
-                    <input type="text" value="">
-                    <button class="plus" id="addL"></button>
-                    <button class="mineus" id="mineusL" style="display:none;"></button>
-                    <button class="add-btn" id="addSet"><img src="images/plus.png" alt="">添加</button>
-                </div>
-                <table class="table3">
-                    <thead>
-                        <tr>
-                            <th>值班人</th>
-                            <th>排班日期</th>
-                            <th>负责人</th>
-                            <th>操作</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tList">
-<!--
-                        <tr>
-                            <td colspan="4">
-                                <p style="width:9.6rem;">暂无数据</p>
-                            </td>
-                        </tr>
--->
-                   <tr>
-                       <td>1</td>
-                       <td>1</td>
-                       <td>1</td>
-                       <td>1</td>
-                   </tr>
-                   <tr>
-                       <td>1</td>
-                       <td>1</td>
-                       <td>1</td>
-                       <td>1</td>
-                   </tr>
-                   <tr>
-                       <td>1</td>
-                       <td>1</td>
-                       <td>1</td>
-                       <td>1</td>
-                   </tr>
-                   <tr>
-                       <td>1</td>
-                       <td>1</td>
-                       <td>1</td>
-                       <td>1</td>
-                   </tr>
-                   <tr>
-                       <td>1</td>
-                       <td>1</td>
-                       <td>1</td>
-                       <td>1</td>
-                   </tr>
-                   <tr>
-                       <td>1</td>
-                       <td>1</td>
-                       <td>1</td>
-                       <td>1</td>
-                   </tr>
-                   <tr>
-                       <td>1</td>
-                       <td>1</td>
-                       <td>1</td>
-                       <td>1</td>
-                   </tr>
-                    </tbody>
-                </table>
-                <div class="pages-div mineus" >
-                    <button class="prev"></button>
-                    <p id="page"><span>0</span>/<span>0</span></p>
-                    <button class="next"></button>
-                    <input type="number">
-                    <button class="skip">跳转</button>
-                </div>
-            </div>
-            <div class="tishi">日期已存在!</div>
-            <div class="edit-div" style="display:none;">
-                <h4>编辑</h4>
-                <span class="close-edit"></span>
-                <div class="set-box">
-                    <label for="">值班人</label>
-                    <input class="input-edit" id="editT" type="text" value="">
-                </div>
-                <div class="set-box">
-                    <label for="">负责人</label>
-                    <input class="input-edit" id="editL" type="text" value="">
-                </div>
-                <div class="set-box edit-box">
-                    <button id="qxEdit">取消</button>
-                    <button id="qdEdit">确定</button>
-                </div>
-            </div>
-        </div>
+      
     </div>
 </body>
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>

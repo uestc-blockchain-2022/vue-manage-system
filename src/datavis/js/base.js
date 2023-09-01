@@ -302,10 +302,10 @@ function chart1() {
         percent: '35.49',
     }];
     var myChart = echarts.init(document.getElementById('pie'));
-    var myChart1 = echarts.init(document.getElementById('pie1'));
+    // var myChart1 = echarts.init(document.getElementById('pie1'));
     window.addEventListener('resize', function () {
         myChart.resize();
-        myChart1.resize();
+        // myChart1.resize();
     });
 
     var str = '';
@@ -447,7 +447,7 @@ function chart1() {
     };
 
     myChart.setOption(option);
-    myChart1.setOption(option);
+    // myChart1.setOption(option);
 }
 
 chart1()
@@ -554,10 +554,10 @@ function chart2(chartType) {
             }]
 
     var myChart = echarts.init(document.getElementById('gdMap'));
-    var myCharts = echarts.init(document.getElementById('gdMaps'));
+    // var myCharts = echarts.init(document.getElementById('gdMaps'));
     window.addEventListener('resize', function () {
         myChart.resize();
-        myCharts.resize();
+        // myCharts.resize();
     });
     var yMax = 0;
     for (var j = 0; j < data.length; j++) {
@@ -566,7 +566,7 @@ function chart2(chartType) {
         }
     }
         myChart.hideLoading();
-        myCharts.hideLoading();
+        // myCharts.hideLoading();
         var option = {
             animation: true,
             tooltip: {
@@ -624,7 +624,7 @@ function chart2(chartType) {
         };
 
         myChart.setOption(option);
-        myCharts.setOption(option);
+        // myCharts.setOption(option);
 }
 chart2('');
 
@@ -875,11 +875,11 @@ $('.city-btn').on('click', 'li', function () {
             if ($('.cont-div').eq(0).css('visibility') != 'hidden') {
                 $('.ranking-box').show();
             }
-            if ($("#barTypes").find('.active').data('value') == 1) {
-                $('#titleQs').html('<span>全网</span>到珠海');
-            } else if ($("#barTypes").find('.active').data('value') == 2) {
-                $('#titleQs').html('珠海到<span>全网</span>')
-            }
+            // if ($("#barTypes").find('.active').data('value') == 1) {
+            //     $('#titleQs').html('<span>全网</span>到珠海');
+            // } else if ($("#barTypes").find('.active').data('value') == 2) {
+            //     $('#titleQs').html('珠海到<span>全网</span>')
+            // }
             $('#citys').html(li_con);
         }
     } else {
@@ -907,11 +907,11 @@ $('#city').on('click', 'li', function () {
 $('#citys').on('click', 'li', function () {
     $(this).addClass('active').siblings('li').removeClass('active');
     $('.pop-data .ranking-box').hide();
-    if ($("#barTypes").find('.active').data('value') == 1) {
-        $('#titleQs').html('<span>' + $(this).html() + '</span>到珠海');
-    } else if ($("#barTypes").find('.active').data('value') == 2) {
-        $('#titleQs').html('珠海到<span>' + $(this).html() + '</span>')
-    }
+    // if ($("#barTypes").find('.active').data('value') == 1) {
+    //     $('#titleQs').html('<span>' + $(this).html() + '</span>到珠海');
+    // } else if ($("#barTypes").find('.active').data('value') == 2) {
+    //     $('#titleQs').html('珠海到<span>' + $(this).html() + '</span>')
+    // }
 })
 
 //寄派件选择
@@ -930,26 +930,26 @@ $("#barType").on('click', 'li', function () {
 
 //寄派件选择
 $("#barTypes").on('click', 'li', function () {
-    $(this).addClass('active').siblings('li').removeClass('active');
-    $('#barTitles').html($(this).html() + '数据');
-    $('#tabBtns').data('state', $(this).data('value'));
-    if ($(this).data('value') == 1) {
-        $('.table2').eq(0).show().siblings('table').hide();
-    } else if ($(this).data('value') == 2) {
-        $('.table2').eq(1).show().siblings('table').hide();
-    }
-    chart3($(this).data('value'), 1);
-    chart4(chart4Data, $(this).data('value'), 1);
+    // $(this).addClass('active').siblings('li').removeClass('active');
+    // $('#barTitles').html($(this).html() + '数据');
+    // $('#tabBtns').data('state', $(this).data('value'));
+    // if ($(this).data('value') == 1) {
+    //     $('.table2').eq(0).show().siblings('table').hide();
+    // } else if ($(this).data('value') == 2) {
+    //     $('.table2').eq(1).show().siblings('table').hide();
+    // }
+    // chart3($(this).data('value'), 1);
+    // chart4(chart4Data, $(this).data('value'), 1);
 
 })
 
 
 function chart3(type, chartType) {
     var myChart = echarts.init(document.getElementById('chart3'));
-    var myCharts = echarts.init(document.getElementById('chart3s'));
+    // var myCharts = echarts.init(document.getElementById('chart3s'));
     window.addEventListener('resize', function () {
         myChart.resize();
-        myCharts.resize();
+        // myCharts.resize();
     });
 
     //    设置背景阴影的参数，获取数据的最大值
@@ -1424,15 +1424,15 @@ function chart3(type, chartType) {
     }
     if (chartType === '') {
         myChart.clear();
-        myCharts.clear();
+        // myCharts.clear();
         myChart.setOption(option);
-        myCharts.setOption(option);
+        // myCharts.setOption(option);
     } else if (chartType === 0) {
         myChart.clear();
         myChart.setOption(option);
     } else if (chartType === 1) {
-        myCharts.clear();
-        myCharts.setOption(option);
+        // myCharts.clear();
+        // myCharts.setOption(option);
     }
 }
 
@@ -1450,15 +1450,15 @@ $('#dateBtn').on('click', function () {
     }
 })
 
-$('#dateBtns').on('click', function () {
-    if ($('#timeBoxs').is(":hidden")) {
-        $('#timeBoxs').show();
-        document.getElementById('timeBoxs').focus();
+// $('#dateBtns').on('click', function () {
+//     if ($('#timeBoxs').is(":hidden")) {
+//         $('#timeBoxs').show();
+//         document.getElementById('timeBoxs').focus();
 
-    } else {
-        $('#timeBoxs').hide();
-    }
-})
+//     } else {
+//         $('#timeBoxs').hide();
+//     }
+// })
 
 $('#switchBtn').on('click', 'span', function () {
     $(this).addClass('active').siblings().removeClass('active');
@@ -1574,8 +1574,8 @@ var endTimes = {
     }
 };
 
-laydate(startTimes);
-laydate(endTimes);
+// laydate(startTimes);
+// laydate(endTimes);
 
 //点击时间选择器的时候更改样式
 $('#endTime').on('click', function () {
@@ -1648,10 +1648,10 @@ function chart4(data, type, chartType) {
 
     var s_data = [];
     var myChart = echarts.init(document.getElementById('chart4'));
-    var myCharts = echarts.init(document.getElementById('chart4s'));
+    // var myCharts = echarts.init(document.getElementById('chart4s'));
     window.addEventListener('resize', function () {
         myChart.resize();
-        myCharts.resize();
+        // myCharts.resize();
     });
 
 
@@ -1816,13 +1816,13 @@ function chart4(data, type, chartType) {
     if (chartType === '') {
         $('.ranking-box').html(str);
         myChart.setOption(option);
-        myCharts.setOption(option);
+        // myCharts.setOption(option);
     } else if (chartType === 0) {
         $('.center-bottom .ranking-box').html(str);
         myChart.setOption(option);
     } else if (chartType === 1) {
         $('.pop-data .ranking-box').html(str);
-        myCharts.setOption(option);
+        // myCharts.setOption(option);
     }
 }
 
@@ -1850,7 +1850,7 @@ var time = {
     }
 };
 
-laydate(time);
+// laydate(time);
 
 $('#addT').on('click', function () {
     $('#mineusT').show();

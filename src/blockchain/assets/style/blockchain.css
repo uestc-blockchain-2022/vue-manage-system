@@ -1,0 +1,203 @@
+.dashboard {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  background-size: cover;
+  padding: 21px 18px 28px 18px;
+  display: flex;
+  flex-direction: column;
+} 
+.dashboard .content-outer-wrapper {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  margin-top: 20px;
+} 
+.dashboard .content-outer-wrapper .content-inner-wrapper {
+  width: calc(100% - 15px * 2);
+  height: 100%;
+  margin: 0 15px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+} 
+.dashboard .content-outer-wrapper .content-inner-wrapper .main-left {
+  z-index: 10;
+}
+.dashboard .content-outer-wrapper .content-inner-wrapper .main-left .list-wrapper {
+  width: 461px;
+  height: 326.25px;
+}
+.dashboard .content-outer-wrapper .content-inner-wrapper .main-left .list-wrapper .outline {
+  margin-left: 60px;
+  line-height: 43.125px;
+}
+.text-title {
+    font-weight: bold;
+    font-size: 22.5px;
+	opacity: 0.8;
+    color: #cdddf7;
+}
+.dashboard .content-outer-wrapper .content-inner-wrapper .main-left .list-wrapper .bg-line {
+  position: absolute;
+  width: 1.875px;
+  height: 243.75px;
+  top: 71.25px;
+  left: 30px;
+  z-index: 20;
+  transition: all 0.1s linear 0.1s;
+  
+ 
+}
+.dashboard .content-outer-wrapper .content-inner-wrapper .main-left .list-wrapper .bg-line-transparent {
+  opacity: 0;
+}
+.dashboard .content-outer-wrapper .content-inner-wrapper .main-left .list-wrapper .swiper-slide-active .icon-block {
+  filter: grayscale(0) !important;
+}
+.dashboard .content-outer-wrapper .content-inner-wrapper .main-left .list-wrapper .x-swiper {
+   width: 461px;
+height: 281.25px;
+}
+.swiper {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+    z-index: 1;
+}
+.dashboard .content-outer-wrapper .content-inner-wrapper .main-left .list-wrapper .x-swiper .x-swiper-slide {
+  width: 461.25px;
+  height: 140.5px;
+  position: relative;
+}
+.dashboard .content-outer-wrapper .content-inner-wrapper .main-left .list-wrapper .x-swiper .x-swiper-slide .block-title {
+  width: 461.25px;
+  height: 39.375px;
+  background-color: rgba(48, 48, 48, 0.6);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16.875px 0 15px;
+  box-sizing: border-box;
+}
+.dashboard .content-outer-wrapper .content-inner-wrapper .main-left .list-wrapper .x-swiper .x-swiper-slide .block-title .icon-block {
+  width: 31.875px;
+  height: 35.625px;
+  filter: grayscale(1);
+  transition: all 0.3s linear;
+}
+.dashboard .content-outer-wrapper .content-inner-wrapper .main-left .list-wrapper .x-swiper .x-swiper-slide .block-title .text-normal {
+  display: inline-block;
+  line-height: 39.375px;
+  width: calc(376.875px - 13.125px * 2);
+  height: 39.375px;
+}
+.text-normal {
+    font-size: 18.75px;
+	color: #cdddf7;
+}
+.dashboard .content-outer-wrapper .content-inner-wrapper .main-left .list-wrapper .x-swiper .x-swiper-slide .block-title .icon-data {
+  width: 20.625px;
+  height: 20.625px;
+  opacity: 0.3;
+}
+.dashboard .content-outer-wrapper .content-inner-wrapper .main-left .list-wrapper .x-swiper .x-swiper-slide .block-content {
+  height: 95.125px;
+  padding: 11.25px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  opacity: 0.4;
+  color: #cdddf7;
+  box-sizing: border-box;
+}
+.text-detail {
+    font-size: 11.25px;
+	color: #cdddf7;
+	box-sizing: border-box;
+}
+.dashboard .content-outer-wrapper .content-inner-wrapper .main-left .list-wrapper .x-swiper .x-swiper-slide .block-content .text-red {
+  color: orange;
+  box-sizing: border-box;
+}
+.dashboard .content-outer-wrapper .content-inner-wrapper .main-left .list-wrapper .x-swiper .x-swiper-slide .block-content .text-green {
+  color: green;
+  box-sizing: border-box;
+}
+.dashboard .content-outer-wrapper .content-inner-wrapper .main-left .block-list-wrapper {
+  background-size: cover;
+}
+.dashboard .content-outer-wrapper .content-inner-wrapper .main-left .transaction-list-wrapper {
+  margin-top: 22.5px;
+  background-size: cover;
+}
+.dashboard .content-outer-wrapper .content-inner-wrapper .main-right .list-wrapper {
+  width: 180px;
+  height: 96px;
+  padding: 35px 0 9px 82px;
+}
+.dashboard .content-outer-wrapper .content-inner-wrapper .main-right .block-num-wrapper {
+  background: no-repeat center url('/src/blockchain/assets/images/bg-block-num@2x.png');
+  background-size: cover;
+}
+.dashboard .content-outer-wrapper .content-inner-wrapper .main-right .dot-num-wrapper {
+  background: no-repeat center url('/src/blockchain/assets/images/bg-dot-num@2x.png');
+  background-size: cover;
+  margin-top: 12px;
+}
+.dashboard .content-outer-wrapper .content-inner-wrapper .main-right .transaction-num-wrapper {
+  background: no-repeat center url('/src/blockchain/assets/images/bg-transaction-num@2x.png');
+  background-size: cover;
+  margin-top: 12px;
+}
+.dashboard .content-outer-wrapper .content-inner-wrapper .dots-wrapper {
+  position: relative;
+  color: transparent;
+}
+.dashboard .content-outer-wrapper .content-inner-wrapper .dots-wrapper svg {
+  pointer-events: none;
+  transform: translate3d(-8%, -4%, 0px);
+}
+.dashboard .content-outer-wrapper .content-inner-wrapper .dots-wrapper .dots-transparent-wrapper {
+  position: absolute;
+}
+.dashboard .content-outer-wrapper .content-inner-wrapper .dots-wrapper .dots-transparent-wrapper .dot {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+}
+.dashboard .content-outer-wrapper .content-inner-wrapper .dots-wrapper .dots-transparent-wrapper .dot-active::after {
+  content: '';
+  position: absolute;
+  left: 40px;
+  top: 40px;
+  width: 1px;
+  height: 1px;
+  background: radial-gradient(transparent, rgba(255, 255, 255, 0.2) 90%, white, white);
+  border-radius: 50%;
+  animation: 3s ease-out scaleUp infinite alternate;
+}
+.dashboard .content-outer-wrapper .content-inner-wrapper .dots-wrapper .dots-transparent-wrapper .dot-1 {
+  left: 170px;
+  top: 310px;
+}
+.dashboard .content-outer-wrapper .content-inner-wrapper .dots-wrapper .dots-transparent-wrapper .dot-2 {
+  left: 360px;
+  top: 280px;
+}
+.dashboard .content-outer-wrapper .content-inner-wrapper .dots-wrapper .dots-transparent-wrapper .dot-3 {
+  left: 174px;
+  top: 76px;
+}
+.dashboard .content-outer-wrapper .content-inner-wrapper .dots-wrapper .dots-transparent-wrapper .dot-4 {
+  left: 320px;
+  top: 50px;
+}
+.dashboard .content-outer-wrapper .content-inner-wrapper .dots-wrapper .dots-transparent-wrapper .dot-5 {
+  left: 450px;
+  top: 70px;
+}

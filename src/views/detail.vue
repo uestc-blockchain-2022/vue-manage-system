@@ -8,30 +8,53 @@
 							<span>基本信息</span>
 						</div>
 					</template>
-					<div class="user-info">
-						<el-avatar :size="120" :src="'https://lin-xin.gitee.io/images/post/parcel.png'" />
-						<div class="user-info-cont">
-							<div class="user-info-name">沙宣洗发水</div>
-							<div>沙宣洗发水露去屑柔顺女/去油蓬松男旗舰店官网正品</div>
-						</div>
-					</div>
+					
 					<el-row :gutter="20">
-						<el-col :span="12">
-							<div class="user-info-list">
+						<el-col :span="6">
+							<div class="user-info">
+								<el-avatar :size="120" :src="'https://lin-xin.gitee.io/images/post/parcel.png'" />
+								<div class="user-info-cont">
+									<div class="user-info-name">沙宣洗发水</div>
+									<div>沙宣洗发水露去屑柔顺女/去油蓬松男旗舰店官网正品</div>
+								</div>
+							</div>
+						</el-col>
+						<el-col :span="4">
+							<div class="user-info-list user-info-list2">
+								物资名称
+								<span>钢卷</span>
+							</div>
+							<div class="user-info-list user-info-list2">
+								材料号
+								<span>254Q1</span>
+							</div>
+						</el-col>
+						<el-col :span="4">
+							<div class="user-info-list user-info-list2">
 								商品编码
 								<span>GR2023043221034</span>
 							</div>
-							<div class="user-info-list">
+							<div class="user-info-list user-info-list2">
 								商品类型
 								<span>XFS</span>
 							</div>
 						</el-col>
-						<el-col :span="12">
-							<div class="user-info-list">
+						<el-col :span="4">
+							<div class="user-info-list user-info-list2">
+								材料
+								<span>碳钢</span>
+							</div>
+							<div class="user-info-list user-info-list2">
+								总重量
+								<span>10吨</span>
+							</div>
+						</el-col>
+						<el-col :span="4">
+							<div class="user-info-list user-info-list2">
 								库存编码
 								<span>201702121</span>
 							</div>
-							<div class="user-info-list">
+							<div class="user-info-list user-info-list2">
 								商品货位
 								<span>0518</span>
 							</div>
@@ -49,7 +72,6 @@
 							<div >
 								<div class="circle center mgt10" :style=" {'background-color' :  item.color  }">{{ item.text }}</div>
 								<div class="mgt10">{{item.date}}</div>
-								<div  >详情</div>
 							</div>
 						</li>
 							
@@ -103,12 +125,12 @@
 		<el-row :gutter="20">
 			<el-col :span="12">
 				<el-card shadow="hover">
-					<schart ref="bar" class="schart" canvasId="bar" :options="options"></schart>
+					<!-- <schart ref="bar" class="schart" canvasId="bar" :options="options"></schart> -->
 				</el-card>
 			</el-col>
 			<el-col :span="12">
 				<el-card shadow="hover">
-					<schart ref="line" class="schart" canvasId="line" :options="options2"></schart>
+					<!-- <schart ref="line" class="schart" canvasId="line" :options="options2"></schart> -->
 				</el-card>
 			</el-col>
 		</el-row>
@@ -260,7 +282,6 @@ const statusList =  [
 	display: flex;
 	align-items: center;
 	padding-bottom: 20px;
-	border-bottom: 2px solid #ccc;
 	margin-bottom: 20px;
 }
 
@@ -279,9 +300,11 @@ const statusList =  [
 .user-info-list {
 	font-size: 14px;
 	color: #999;
-	line-height: 25px;
+	line-height: 35px;
 }
-
+.user-info-list2{
+	line-height: 60px;
+}
 .user-info-list span {
 	margin-left: 30px;
 	width: 150px;
